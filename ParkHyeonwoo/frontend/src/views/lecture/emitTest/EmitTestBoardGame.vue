@@ -12,7 +12,7 @@
 </template>
 
 <script>
-
+import axios from 'axios'
 import TableComponent from "@/components/lecture/emitTest/TableComponent.vue"
 
 // 오목 게임
@@ -47,6 +47,16 @@ export default {
       updateWinner(receivedWinner) {
          console.log("Main Board: winner received")
          this.winner = receivedWinner
+         
+         axios.post('http://localhost:7777/vue/second/receive-test', 
+            { winner: this.winner } 
+         )
+         .then(() => {
+            alert('데이터 전송 완료!')
+         })
+         .catch(() => {
+            alert('문제 발생!')
+         })
       },
       updateTableData() {
          this.tableData = [
