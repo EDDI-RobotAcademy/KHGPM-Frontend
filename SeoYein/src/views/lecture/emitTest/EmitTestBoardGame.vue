@@ -7,9 +7,7 @@
         @updateTurnShape="updateTurnShape"
         @updateWinner="updateWinner"
         @updateTableData="updateTableData"/>
-    <div v-if="winner">
-        {{ winner }} 님의 승리!
-    </div>
+    <div v-if="winner">{{ winner }} 님의 승리!</div>
   </v-container>
 </template>
 
@@ -56,7 +54,7 @@ export default {
             .catch(() => {
                 alert('문제 발생!')
             })
-        },
+        }, 
         updateTableData () {
             this.tableData = [
                 ['', '', '', '', ''],
