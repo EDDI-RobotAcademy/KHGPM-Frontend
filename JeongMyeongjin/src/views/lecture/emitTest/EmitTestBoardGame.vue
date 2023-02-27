@@ -47,7 +47,7 @@ export default {
             console.log("Main Board Game: winner received")
             this.winner = receivedWinner
 
-            this.respWinner(receivedWinner)
+            this.respWinner(receivedWinner )
         }, 
         updateTableData() {
             this.tableData = [
@@ -60,7 +60,7 @@ export default {
         },
         respWinner(receivedWinner) {
             axios.post('http://localhost:7777/vue/first/receive-test2',
-            { receivedWinner }
+            { receivedWinner  }
             )
             .then(() => {
                 alert('데이터 전송 완료!')
