@@ -45,7 +45,7 @@
             console.log('SimpleBoardGameView received TableComponent info: ' + passingValue)
             this.currentTurnShape = passingValue
         },
-          updateWinner (receivedWinner) {
+        updateWinner (receivedWinner) {
             console.log("Main Board Game: winner received")
             this.winner = receivedWinner
             const winnerdata = {winner : this.winner}
