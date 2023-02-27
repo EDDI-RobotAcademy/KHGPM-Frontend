@@ -5,21 +5,17 @@
           :table-data="tableData"
           :current-turn-shape="currentTurnShape"
           @updateTurnShape="updateTurnShape"
-          @updateWinner="updateWinner"
-          @updateTableData="updateTableData"/>
+          @updateWinner="updateWinner"/>
       <div v-if="winner">{{ winner }} 님의 승리!</div>
     </v-container>
   </template>
-  1
+  
   <script>
-  
   import TableComponent from '@/components/lecture/emitTest/TableComponent.vue'
-  
   // 오목 게임
   // 바둑판, 승자 판정 그 다음 아직 모르겠음.
   // 누구 차례인지 어떻게 알지 ?
   // 'O', 'X' 표시로 순서를 구분하자!
-  
   export default {
       name: "EmitTestBoardGame",
       components: {
@@ -47,21 +43,10 @@
           updateWinner (receivedWinner) {
               console.log("Main Board Game: winner received")
               this.winner = receivedWinner
-          },
-          updateTableData () {
-              this.tableData = [
-                  ['', '', '', '', ''],
-                  ['', '', '', '', ''],
-                  ['', '', '', '', ''],
-                  ['', '', '', '', ''],
-                  ['', '', '', '', ''],
-              ]
           }
       }
   }
-  
   </script>
   
   <style>
-  
   </style>
