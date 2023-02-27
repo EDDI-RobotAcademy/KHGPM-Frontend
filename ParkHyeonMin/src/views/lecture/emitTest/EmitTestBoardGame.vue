@@ -10,7 +10,7 @@
       <div v-if="winner">{{ winner }} 님의 승리!</div>
     </v-container>
   </template>
-  
+  1
   <script>
   
   import TableComponent from '@/components/lecture/emitTest/TableComponent.vue'

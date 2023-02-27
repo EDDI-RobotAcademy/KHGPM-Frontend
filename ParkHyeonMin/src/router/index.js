@@ -12,7 +12,7 @@ import AxiosTestPage from "@/views/lecture/axiosTest/AxiosTestPage.vue"
 
 
 Vue.use(VueRouter)
-
+1
 const routes = [
   {
     path: '/',
