@@ -4,7 +4,7 @@
       <axios-test-form @submit="onSubmit"/>
     </v-container>
   </template>
-  1
+
   <script>
   
   import axios from 'axios'

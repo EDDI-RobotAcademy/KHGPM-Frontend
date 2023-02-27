@@ -20,7 +20,7 @@
           </div>
       </form>
   </template>
-  1
+
   <script>
   export default {
       name: "AxiosTestForm",
