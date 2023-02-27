@@ -3,7 +3,7 @@
       {{ cellData }}
     </td>
   </template>
-
+  
   <script>
   
   export default {
