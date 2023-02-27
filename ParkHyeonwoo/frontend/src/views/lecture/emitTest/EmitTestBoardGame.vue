@@ -48,8 +48,9 @@ export default {
          console.log("Main Board: winner received")
          this.winner = receivedWinner
          
-         axios.post('http://localhost:7777/vue/second/receive-test', 
-            { winner: this.winner } 
+         // const { winner } = receivedWinner
+         axios.post('http://localhost:7777/vue/first/receive-test', 
+            { winner: this.winner }  
          )
          .then(() => {
             alert('데이터 전송 완료!')
