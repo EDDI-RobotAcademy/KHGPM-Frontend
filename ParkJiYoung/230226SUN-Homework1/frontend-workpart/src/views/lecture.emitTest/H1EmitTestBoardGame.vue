@@ -50,6 +50,12 @@
             this.winner = receivedWinner
             console.log("승자: " + receivedWinner)
             axios.post('http://localhost:7777/vue/second/receive-winner', {receivedWinner})
+            .then(() => {
+                alert('데이터 전송 완료!')
+            })
+            .catch(() => {
+                alert('문제 발생!')
+            })
         },
         updateTableData() {
             this.tableData = [
