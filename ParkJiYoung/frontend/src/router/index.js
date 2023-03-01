@@ -5,10 +5,9 @@ import HomeView from '../views/HomeView.vue'
 import BindTest from "@/views/lecture/bind/BindTest.vue"
 import ClickEventTest from "@/views/lecture/clickEvent/ClickEventTest.vue"
 import ComponentTest from "@/views/lecture/componentTest/ComponentTest.vue"
-
 import EmitTestBoardGame from "@/views/lecture/emitTest/EmitTestBoardGame.vue"
-
 import AxiosTestPage from "@/views/lecture/axiosTest/AxiosTestPage.vue"
+import H1EmitTestBoardGame from "@/views/lecture/emitTest/H1EmitTestBoardGame.vue"
 
 Vue.use(VueRouter)
 
@@ -42,6 +41,11 @@ const routes = [
     path: '/axios-test-page',
     name: 'AxiosTestPage',
     component: AxiosTestPage
+  },
+  {
+    path: '/h1-emit-test-board-game',
+    name: 'H1EmitTestBoardGame',
+    component: H1EmitTestBoardGame
   },
   
 ]
