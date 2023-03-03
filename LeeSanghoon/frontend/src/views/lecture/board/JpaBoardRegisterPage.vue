@@ -11,6 +11,11 @@ import JpaBoardRegisterForm from '@/components/lecture/board/JpaBoardRegisterFor
 export default {
     components: { JpaBoardRegisterForm },
     name: "JpaBoardRegisterPage",
+    methods: {
+        onSubmit (payload) {
+            console.log(payload)
+        }
+    }
 }
 
 </script>
