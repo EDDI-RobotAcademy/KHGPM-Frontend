@@ -9,6 +9,8 @@ import ComponentTest from "@/views/lecture/componentTest/ComponentTest.vue"
 import EmitTestBoardGame from "@/views/lecture/emitTest/EmitTestBoardGame.vue"
 
 import AxiosTestPage from "@/views/lecture/axiosTest/AxiosTestPage.vue"
+import JpaBoardListPage from "@/views/lecture/board/JpaBoardListPage.vue"
+import JpaBoardRegisterPage from "@/views/lecture/board/JpaBoardRegisterPage.vue"
 
 Vue.use(VueRouter)
 
@@ -43,6 +45,18 @@ const routes = [
     name: 'AxiosTestPage',
     component: AxiosTestPage
   },
+  {
+    path: '/board-list-page',
+    name: 'JpaBoardListPage',
+    component: JpaBoardListPage
+  },
+  {
+    path: '/board-register',
+    name: 'JpaBoardRegisterPage',
+    component: JpaBoardRegisterPage
+  },
+
+  
   
 ]
 
