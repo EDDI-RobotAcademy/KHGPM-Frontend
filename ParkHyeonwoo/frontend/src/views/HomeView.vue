@@ -7,7 +7,8 @@
         <router-link to="/click-test">ClickEventTest</router-link> |
         <router-link to="/component-test">ComponentTest</router-link> |
         <router-link to="/emit-test-board-game">EmitTestBoardGame</router-link> |
-        <router-link to="/axios-test-page">Vue에서 Spring으로 데이터 전송하기</router-link>
+        <router-link to="/axios-test-page">Vue에서 Spring으로 데이터 전송하기</router-link> |
+        <router-link to="/board-list-page">게시판</router-link> |
       </nav>
       <router-view/>
     </div>
