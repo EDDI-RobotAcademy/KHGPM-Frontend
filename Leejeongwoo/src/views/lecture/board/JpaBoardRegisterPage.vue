@@ -1,6 +1,7 @@
 <template>
   <v-container>
-    <h2>게시물 작성</h2>
+    <h2>게시글 작성</h2>
+    <p><mark>게시글 목록을 작성하는 페이지 입니다.</mark></p>
     <jpa-board-register-form @submit="onSubmit"/>
   </v-container>
 </template>
@@ -14,7 +15,7 @@ export default {
     name: "JpaBoardRegisterPage",
     methods: {
     ...mapActions([
-      //보드생성을 스프링한테 요청하겠다라는
+      //보드생성을 스프링한테 요청하겠다라는 의미
       'requestCreateBoardToSpring'
     ]),
     async onSubmit(payload){

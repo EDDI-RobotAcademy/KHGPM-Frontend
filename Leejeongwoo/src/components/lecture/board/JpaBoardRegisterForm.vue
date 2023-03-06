@@ -1,5 +1,7 @@
 <template>
+  <v-container>
   <form @submit.prevent="onSubmit">
+    <div class="div">
     <table>
       <tr>
         <td>제목</td>
@@ -20,15 +22,15 @@
         </td>
       </tr>
     </table>
-
+  </div>
     <div>
       <button type="submit">등록</button>
       <router-link to="{ name: 'JpaBoardListPage'}">
         취소
       </router-link>
     </div>
-
   </form>
+</v-container>
 </template>
 
 <script>
@@ -55,8 +57,9 @@ export default {
 
 <style>
 
-button{
-  border-style: groove;
+.div{
+  display: flex;
+  justify-content: center;
 }
 
 </style>
