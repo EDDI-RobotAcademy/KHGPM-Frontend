@@ -1,5 +1,6 @@
 import {
-    REQUEST_BOARD_LIST_TO_SPRING
+    REQUEST_BOARD_LIST_TO_SPRING,
+    REQUEST_BOARD_TO_SPRING,
 } from './mutation-types'
 
 import axios from 'axios'
@@ -21,6 +22,12 @@ export default {
         return axios.get('http://localhost:7777/board/list')
             .then((res) => {
                 commit(REQUEST_BOARD_LIST_TO_SPRING, res.data)
+            })
+    },
+    requestBoardToSpring ({ commit }) {
+        return axios.get(`http://localhost:7777/board/${boardId}`)
+            .then((res) => {
+                commit(REQUEST_BOARD_TO_SPRING, res.data)
             })
     }
 }

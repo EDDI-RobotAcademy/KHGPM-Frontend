@@ -6,7 +6,7 @@
         <th align="center" width="100">No</th>
         <th align="center" width="640">제목</th>
         <th align="center" width="150">작성자</th>
-        <th align="center" width="240">등록일자</th>
+        <th align="center" width="300">등록일자</th>
       </tr>
       <tr v-if="!boards || (Array.isArray(boards) && boards.length === 0)">
         <td colspan="4">
@@ -18,7 +18,10 @@
           {{ board.boardId }}
         </td>
         <td align="left">
-          {{ board.title }}
+          <router-link :to="{ name: 'JpaBoardReadPage',
+                            params: { boardId: board.boardId.toString() }}">
+            {{ board.title }}
+          </router-link>
         </td>
         <td align="right">
           {{ board.writer }}
