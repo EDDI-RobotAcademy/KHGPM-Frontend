@@ -20,7 +20,10 @@
          <td align="left">
             {{ board.title }}
          </td>
-         <td align="center">
+         <td align="right">
+          {{ board.writer }}
+        </td>
+        <td align="center">
           {{ board.regDate }}
         </td>
       </tr>
