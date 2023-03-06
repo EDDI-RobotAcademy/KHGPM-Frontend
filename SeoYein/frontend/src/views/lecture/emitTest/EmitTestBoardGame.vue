@@ -7,19 +7,17 @@
         @updateTurnShape="updateTurnShape"
         @updateWinner="updateWinner"
         @updateTableData="updateTableData"/>
-    <div v-if="winner">
-        {{ winner }} 님의 승리!
-    </div>
+    <div v-if="winner">{{ winner }} 님의 승리!</div>
   </v-container>
 </template>
 
 <script>
-import axios from 'axios'
 import TableComponent from '@/components/lecture/emitTest/TableComponent.vue'
 // 오목 게임
-// 바둑판, 승자 판정 그 다음 아직 모르겠음.
-// 누구 차례인지 어떻게 알지 ?
+// 바둑판, 승자 판정, ...
+// 누구 차례인지 어떻게 알지?
 // 'O', 'X' 표시로 순서를 구분하자!
+
 export default {
     name: "EmitTestBoardGame",
     components: {
@@ -47,15 +45,6 @@ export default {
         updateWinner (receivedWinner) {
             console.log("Main Board Game: winner received")
             this.winner = receivedWinner
-            axios.post('http://localhost:7777/vue/second/post-test', 
-                { receivedWinner }
-            )
-            .then(() => {
-                alert('데이터 전송 완료!')
-            })
-            .catch(() => {
-                alert('문제 발생!')
-            })
         },
         updateTableData () {
             this.tableData = [
@@ -71,4 +60,5 @@ export default {
 </script>
 
 <style>
+
 </style>
