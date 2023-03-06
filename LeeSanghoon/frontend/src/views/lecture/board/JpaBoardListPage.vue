@@ -9,6 +9,7 @@
 </template>
 
 <script>
+
 import JpaBoardList from '@/components/lecture/board/JpaBoardList.vue'
 import { mapActions, mapState } from 'vuex'
 
