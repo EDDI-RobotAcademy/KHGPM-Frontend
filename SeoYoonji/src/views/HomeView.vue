@@ -8,6 +8,7 @@
         <router-link to="/component-test">component테스트</router-link> |
         <router-link to="/emit-test-board-game">emit 테스트(보드게임)</router-link> |
         <router-link to="/axios-test-page">Vue에서Spring으로데이터전송</router-link> |
+        <router-link to="/board-list-page">boardList</router-link> |
       </nav>
       <router-view/>
     </div>
