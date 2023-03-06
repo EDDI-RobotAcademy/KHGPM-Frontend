@@ -38,5 +38,17 @@ export default {
             .catch(() => {
                 alert("문제 발생!")
             })
+    },
+    requestBoardModifyToSpring ({}, payload) {
+        const { title, content, boardId, writer } = payload
+
+        return axios.put(`http://localhost:7777/board/${boardId}`,
+            { title, content, writer })
+            .then(() => {
+                alert("수정 성공")
+            })
+            .catch(() => {
+                alert("문제 발생!")
+            })
     }
 }
