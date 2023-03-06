@@ -13,9 +13,9 @@
                 현재 등록된 게시물이 없습니다!
             </td>
         </tr>
-        <tr v-else v-for="board in boards" :key="board.boardNo">
+        <tr v-else v-for="board in boards" :key="board.boardId">
             <td align="center">
-                {{ board.boardNo }}
+                {{ board.boardId }}
             </td>
             <td align="left">
                 {{ board.title }}
