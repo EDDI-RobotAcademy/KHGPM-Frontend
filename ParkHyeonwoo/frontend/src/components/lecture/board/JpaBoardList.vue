@@ -18,7 +18,10 @@
             {{ board.boardId }}
          </td>
          <td align="left">
+            <router-link :to="{ name: 'JpaBoardReadPage', 
+                                params: { boardId: board.boardId.toString() }}">
             {{ board.title }}
+            </router-link>
          </td>
          <td align="right">
           {{ board.writer }}
