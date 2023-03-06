@@ -8,6 +8,6 @@ export default {
        state.boards = boards
    },
    [REQUEST_BOARD_TO_SPRING] (state, passingData) {
-      state.boards = passingData
+      state.board = passingData
   }
 }
