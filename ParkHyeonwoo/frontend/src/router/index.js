@@ -16,7 +16,7 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: '/', // 지정할 url 주소 
     name: 'home', // 매핑 x 그냥 짓는 이름
     component: HomeView // vue 파일의 name 과 매핑 
   },
