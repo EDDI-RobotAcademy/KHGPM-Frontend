@@ -25,9 +25,30 @@ export default {  //commit 할게 없어서 공객체 전달 ({})
             })
     },
     requestBoardToSpring({ commit }, boardId ) {
-        return axios.get(`http://localhost:7777/${boardId}`)
+        return axios.get(`http://localhost:7777/board/${boardId}`)
             .then((res) => {
                 commit(REQUEST_BOARD_TO_SPRING, res.data)
+            })
+    },
+    requestDeleteBoardToSpring ({}, boardId) {
+        return axios.delete(`http://localhost:7777/board/${boardId}`)
+            .then(() => {
+                alert('삭제성공!')
+            })
+            .catch(() => {
+                alert('문제발생!')
+            })
+    },
+    requestBoardModifyToSpring ({}, payload) {
+        const { title, content, boardId, writer } = payload
+
+        return axios.put(`http://localhost:7777/board/${boardId}`,
+            { title, content, writer })
+            .then(() => {
+                alert("수정 성공")
+            })
+            .catch(() => {
+                alert("문제 발생!")
             })
     }
 }
