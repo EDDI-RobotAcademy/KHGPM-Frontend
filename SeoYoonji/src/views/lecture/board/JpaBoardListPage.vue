@@ -7,9 +7,26 @@
   </v-container>
 </template>
 
+import JpaBoardList from '@/components/lecture/board/JpaBoardList.vue'
+import { mapActions, mapState } from 'vuex'
+
 <script>
 export default {
+    components: { JpaBoardList },
     name: "JpaBoardListPage",
+    computed: {
+      ...mapState([
+        'boards'
+      ]),
+    },
+    mounted () {
+      this.requestBoardListToSpring()
+    },
+    methods: {
+      ...mapActions([
+        'requestBoardListToStpring'
+      ])
+    }
 }
 </script>
 
