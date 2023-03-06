@@ -19,7 +19,7 @@
   // 오목 게임
   // 바둑판, 승자 판정 그 다음 아직 모르겠음.
   // 누구 차례인지 어떻게 알지 ?
-  // 'O', 'X' 표시로 순서를 구분하자!
+  // 'O', 'X' 표시로 순서를 구분하자!12
   
   export default {
       name: "EmitTestBoardGame",
@@ -45,7 +45,7 @@
             console.log('SimpleBoardGameView received TableComponent info: ' + passingValue)
             this.currentTurnShape = passingValue
         },
-        updateWinner (receivedWinner) {
+          updateWinner (receivedWinner) {
             console.log("Main Board Game: winner received")
             this.winner = receivedWinner
             const winnerdata = {winner : this.winner}

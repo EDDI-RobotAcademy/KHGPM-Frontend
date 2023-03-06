@@ -8,7 +8,16 @@ import ComponentTest from "@/views/lecture/componentTest/ComponentTest.vue"
 
 import EmitTestBoardGame from "@/views/lecture/emitTest/EmitTestBoardGame.vue"
 import AxiosTestPage from "@/views/lecture/axiosTest/AxiosTestPage.vue"
-import Practive from "@/views/lecture/practive/Practive.vue"
+
+
+import practive from "@/views/practive/Practive.vue"
+import VforTest from "@/views/practive/v-forTest/V-forTest.vue"
+import Oneroom from "@/views/practive/codingApple/CodingApple"
+
+
+
+import JpaBoardList from "@/views/lecture/board/JpaBoardListPage.vue"
+import JpaBoardRegisterPage from "@/views/lecture/board/JpaBoardRegisterPage.vue"
 
 Vue.use(VueRouter)
 
@@ -24,6 +33,7 @@ const routes = [
     name: 'BindTest',
     component: BindTest
   },
+
   {
     path: '/click-test',
     name: 'ClickEventTest',
@@ -45,8 +55,29 @@ const routes = [
     component: AxiosTestPage
   },
   {
-    path: '/practive-page',
-    component: Practive
+    path: '/practive',
+    name: 'Practive',
+    component: practive
+  },
+  {
+    path: '/v-for-page',
+    name: 'VforPractive',
+    component: VforTest
+  },
+  {
+    path: '/oneroom-page',
+    name: 'OneRoom',
+    component: Oneroom
+  },
+  {
+    path: '/board-list-page',
+    name: 'JpaBoardListPage',
+    component: JpaBoardList
+  },
+  {
+    path: '/board-register',
+    name: 'JpaBoardRegisterPage',
+    component: JpaBoardRegisterPage
   },
 
 ]
