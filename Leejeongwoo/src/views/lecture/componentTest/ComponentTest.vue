@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+<v-container>
     <global-component :initialTest="counter" :incrementValue="incValue1"/>  <mark>(클릭시 +1)</mark><br/>
     <global-component :initial-test="start" :increment-value="incValue2"/>  <mark>(클릭시 +2)</mark><br/>
     <global-component v-bind:initial-test="counter" :increment-value="incValue3"/>  <mark>(클릭시 +3)</mark><br/>

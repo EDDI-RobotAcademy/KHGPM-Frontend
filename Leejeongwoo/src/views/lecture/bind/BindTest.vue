@@ -4,7 +4,7 @@
             <h1>Hello {{ message }}</h1>
             <p>{{ msg }}</p>
             <p>{{ list[number] }}</p>
-            <p>{{ animals }}</p>
+            <p>{{ animals[0] }}</p>
         </div>
     </v-container>
 </template>
