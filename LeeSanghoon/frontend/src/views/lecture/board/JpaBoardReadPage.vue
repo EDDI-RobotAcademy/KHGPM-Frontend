@@ -33,8 +33,12 @@ export default {
         ...mapActions([
             'requestBoardToSpring',
         ]),
+        onDelete () {
+
+        }
     },
     created () {
+        console.log('boardId: ' + this.boardId)
         this.requestBoardToSpring(this.boardId)
     }
 }
