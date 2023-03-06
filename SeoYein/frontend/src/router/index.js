@@ -9,6 +9,10 @@ import ComponentTest from "@/views/lecture/componentTest/ComponentTest.vue"
 import EmitTestBoardGame from "@/views/lecture/emitTest/EmitTestBoardGame.vue"
 
 import AxiosTestPage from "@/views/lecture/axiosTest/AxiosTestPage.vue"
+import JpaBoardListPage from "@/views/lecture/board/JpaBoardListPage.vue"
+import JpaBoardRegisterPage from "@/views/lecture/board/JpaBoardRegisterPage.vue"
+import JpaBoardReadPage from "@/views/lecture/board/JpaBoardReadPage.vue"
+import JpaBoardModifyPage from "@/views/lecture/board/JpaBoardModifyPage.vue"
 
 Vue.use(VueRouter)
 
@@ -43,6 +47,37 @@ const routes = [
     name: 'AxiosTestPage',
     component: AxiosTestPage
   },
+  {
+    path: '/board-list-page',
+    name: 'JpaBoardListPage',
+    component: JpaBoardListPage
+  },
+  {
+    path: '/board-register',
+    name: 'JpaBoardRegisterPage',
+    component: JpaBoardRegisterPage
+  },
+  {
+    path: '/board-read/:boardId', // 콜론으로 가변인자 처리
+    name: 'JpaBoardReadPage',
+    components: {
+      default: JpaBoardReadPage
+    },
+    props: {
+      default: true
+    }
+  },
+  {
+    path: '/board-modify/:boardId', // 콜론으로 가변인자 처리
+    name: 'JpaBoardModifyPage',
+    components: {
+      default: JpaBoardModifyPage
+    },
+    props: {
+      default: true
+    }
+  },
+  
 ]
 
 const router = new VueRouter({
