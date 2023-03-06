@@ -11,6 +11,7 @@ import AxiosTestPage from '@/views/lecture/axiosTest/AxiosTestPage.vue'
 
 import JpaBoardListPage from "@/views/lecture/board/JpaBoardListPage.vue"
 import JpaBoardRegisterPage from "@/views/lecture/board/JpaBoardRegisterPage.vue"
+import JpaBoardReadPage from '@/views/lecture/board/JpaBoardReadPage.vue'
 
 Vue.use(VueRouter)
 // url 맵핑
@@ -54,6 +55,16 @@ const routes = [
     path: '/board-register',
     name: 'JpaBoardRegisterPage',
     component: JpaBoardRegisterPage
+  },
+  {
+    path: '/board-read/:boardId',  // ':' 가변인자 처리
+    name: 'JpaBoardReadPage',
+    components: {
+      default: JpaBoardReadPage
+    },
+    props: { //router 이동할 때 파라미터 전달 위해서는 필요함
+      default: true
+    }
   },
 ]
 
