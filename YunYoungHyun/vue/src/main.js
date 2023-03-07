@@ -6,6 +6,12 @@ import vuetify from './plugins/vuetify'
 
 import GlobalComponent from '@/components/lecture/componentTest/GlobalComponent.vue'
 
+import BootstrapVue from '/node_modules/bootstrap-vue'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+
+Vue.use(BootstrapVue)
+
 Vue.config.productionTip = false
 
 Vue.component(GlobalComponent.name, GlobalComponent)
