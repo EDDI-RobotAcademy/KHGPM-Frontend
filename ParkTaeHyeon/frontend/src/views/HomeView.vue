@@ -9,6 +9,7 @@
         <router-link to="/emit-test-board-game">emit 테스트 (보드 게임)</router-link> |
         <router-link to="/axios-test-page">Vue에서 Spring으로 데이터 전송하기</router-link> |
         <router-link to="/board-list-page">게시판</router-link> |
+        <router-link to="/product-list-page">상품 목록</router-link> |
       </nav>
       <router-view/>
     </div>
