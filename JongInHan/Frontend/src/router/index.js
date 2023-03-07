@@ -15,6 +15,7 @@ import JpaBoardReadPage from '@/views/lecture/board/JpaBoardReadPage.vue';
 import JpaBoardModifyPage from '@/views/lecture/board/JpaBoardModifyPage.vue';
 import ShopListPage from '@/views/lecture/shop/ShopListPage.vue';
 import ShopRegisterPage from '@/views/lecture/shop/ShopRegisterPage.vue';
+import ShopModifyPage from '@/views/lecture/shop/ShopModifyPage.vue';
 
 Vue.use(VueRouter);
 
@@ -88,6 +89,11 @@ const routes = [
     path: '/shop-register-page',
     name: 'ShopRegisterPage',
     component: ShopRegisterPage,
+  },
+  {
+    path: '/shop-modify-page',
+    name: 'ShopModifyPage',
+    component: ShopModifyPage,
   },
 ];
 

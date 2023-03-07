@@ -17,6 +17,9 @@
         <p>{{ product.description }}</p>
         <p>{{ product.price }}₩</p>
         <button @click="addToCart(product)">장바구니에 담기</button>
+        <router-link :to="{ name: 'ShopModifyPage', params: { productId } }">
+          게시물 수정
+        </router-link>
       </div>
     </div>
     <div class="cart-container">
@@ -88,4 +91,3 @@ export default {
   margin-top: 50px;
 }
 </style>
-
