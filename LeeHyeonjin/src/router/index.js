@@ -80,7 +80,7 @@ const routes = [
     }
   },
   {
-    path: '/product-board-list-page',
+    path: '/product',
     name: 'ProductBoardListPage',
     component: ProductBoardListPage 
   }, 
