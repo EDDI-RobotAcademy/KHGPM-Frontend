@@ -8,7 +8,8 @@
         <router-link :to="{ name: 'ComponentTest' }">컴포넌트 테스트</router-link> |   
         <router-link :to="{ name: 'EmitTestBoardGame' }">emit 테스트(보드 게임)</router-link> |
         <router-link :to="{ name: 'AxiosTestPage' }">Vue에서 Spring으로 데이터 전송하기</router-link> |
-        <router-link :to="{ name: 'JpaBoardListPage' }">게시판</router-link> |   
+        <router-link :to="{ name: 'JpaBoardListPage' }">게시판</router-link> |
+        <router-link :to="{ name: 'JpaProductListPage' }">상품</router-link> |   
       </nav>
       <router-view/>
     </div>

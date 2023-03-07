@@ -7,7 +7,6 @@ import axios from 'axios'
 
 export default {
     requestCreateBoardToSpring ({}, payload) {
-
         const { title, content, writer } = payload
         return axios.post('http://localhost:7777/board/register',
             { title, content, writer })
@@ -50,5 +49,25 @@ export default {
             .catch(() => {
                 alert("문제 발생!")
             })
-    }
+    },
+    requestProductListToSpring ({ commit }) {
+        return axios.get('http://localhost:7777/product/list')
+            .then((res) => {
+                commit(REQUEST_PRODUCT_LIST_TO_SPRING, res.data)
+            })
+            .catch(() => {
+                alert("이것도 못하니 멍청아?")
+            })
+    },
+    requestCreateProductToSpring ({}, payload) {
+        const { name, price  } = payload
+        return axios.post('http://localhost:7777/product/register',
+            { name, price })
+            .then(() => {
+                alert('게시물 등록 성공!')
+            })
+            .catch(() => {
+                alert('문제 발생!')
+            })
+    },
 }

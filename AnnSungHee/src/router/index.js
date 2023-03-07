@@ -13,6 +13,8 @@ import JpaBoardListPage from "@/views/lecture/board/JpaBoardListPage.vue"
 import JpaBoardRegisterPage from "@/views/lecture/board/JpaBoardRegisterPage.vue"
 import JpaBoardReadPage from "@/views/lecture/board/JpaBoardReadPage.vue"
 import JpaBoardModifyPage from "@/views/lecture/board/JpaBoardModifyPage.vue"
+import JpaProductListPage from "@/views/lecture/product/JpaProductListPage.vue"
+import JpaProductRegisterPage from "@/views/lecture/product/JpaProductRegisterPage.vue"
 
 Vue.use(VueRouter)
 
@@ -75,10 +77,18 @@ const routes = [
     },
     props: {
       default: true
-    }
+    },
   },
-
-  
+  {
+    path: '/product-list-page',
+    name: 'JpaProductListPage',
+    component: JpaProductListPage
+  },
+  {
+    path: '/product-register',
+    name: 'JpaProductRegisterPage',
+    component: JpaProductRegisterPage
+  },
 ]
 
 const router = new VueRouter({
