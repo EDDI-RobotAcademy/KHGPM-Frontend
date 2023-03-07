@@ -21,6 +21,11 @@ import JpaBoardRegisterPage from "@/views/lecture/board/JpaBoardRegisterPage.vue
 import JpaBoardReadPage from "@/views/lecture/board/JpaBoardReadPage.vue"
 import JpaBoardModifyPage from "@/views/lecture/board/JpaBoardModifyPage.vue"
 
+import ProductListPage from "@/views/lecture/product/ProductListPage.vue"
+import ProductReadPage from "@/views/lecture/product/ProductReadPage.vue"
+import ProductModifyPage from "@/views/lecture/product/ProductModifyPage.vue"
+import ProductRegisterPage from "@/views/lecture/product/ProductRegisterPage.vue"
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -76,6 +81,8 @@ const routes = [
     name: 'AxiosTestPage',
     component: AxiosTestPage
   },
+
+  //게시판
   {
     path: '/board-list-page',
     name: 'JpaBoardListPage',
@@ -107,6 +114,37 @@ const routes = [
     }
   },
 
+  //상품 게시판
+  {
+    path: '/product-list-page',
+    name: 'ProductListPage',
+    component: ProductListPage
+  },
+  {
+    path: '/product-register',
+    name: 'ProductRegisterPage',
+    component: ProductRegisterPage
+  },
+  {
+    path: '/product-read/:productId',
+    name: 'ProductReadPage',
+    components: {
+      default: ProductReadPage
+    },
+    props: {
+      default: true
+    }
+  },
+  {
+    path: '/product-modify/:productId',
+    name: 'ProductModifyPage',
+    components: {
+      default: ProductModifyPage
+    },
+    props: {
+      default: true
+    }
+  }
 ]
 
 const router = new VueRouter({

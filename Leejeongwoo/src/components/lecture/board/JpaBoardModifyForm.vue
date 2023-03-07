@@ -1,51 +1,53 @@
 <template>
-  <v-container>
-  <div>
-    <form @submit.prevent="onSubmit">
-      <div class="div">
-      <table>
-        <tr>
-            <td>게시물 번호</td>
-            <td>
-                <input type="text" :value="board.boardId" disabled/>
-            </td>
-        </tr>
-        <tr>
-            <td>제목</td>
-            <td>
-                <input type="text" v-model="title"/>
-            </td>
-        </tr>
-        <tr>
-            <td>작성자</td>
-            <td>
-                <input type="text" :value="board.writer" disabled/>
-            </td>
-        </tr>
-        <tr>
-            <td>등록일자</td>
-            <td>
-                <input type="text" :value="board.regDate" disabled/>
-            </td>
-        </tr>
-        <tr>
-            <td>본문</td>
-            <td>
-                <textarea cols="50" rows="20" v-model="content"/>
-            </td>
-        </tr>
-      </table>
-    </div>
-      <div>
-        <button type="submit">수정 완료</button>
-        <router-link :to="{ name: 'JpaBoardReadPage',
-                            params: { boardId: board.boardId.toString() }}">
-          취소
-        </router-link>
-      </div>
-    </form>
-  </div>
-</v-container>
+    <v-container>
+        <div>
+            <form @submit.prevent="onSubmit">
+                <div class="div">
+                    <table>
+                        <tr>
+                            <td>게시물 번호</td>
+                            <td>
+                                <input type="text" :value="board.boardId" disabled />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>제목</td>
+                            <td>
+                                <input type="text" v-model="title" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>작성자</td>
+                            <td>
+                                <input type="text" :value="board.writer" disabled />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>등록일자</td>
+                            <td>
+                                <input type="text" :value="board.regDate" disabled />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>본문</td>
+                            <td>
+                                <textarea cols="50" rows="20" v-model="content" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <button type="submit">수정 완료</button>
+                    <router-link :to="{
+                        name: 'JpaBoardReadPage',
+                        params: { boardId: board.boardId.toString() }
+                    }">
+                        취소
+                    </router-link>
+                </div>
+            </form>
+        </div>
+    </v-container>
 </template>
 
 <script>
@@ -58,7 +60,7 @@ export default {
             required: true,
         }
     },
-    data () {
+    data() {
         return {
             title: '',
             content: '',
@@ -66,14 +68,14 @@ export default {
             regDate: '',
         }
     },
-    created () {
+    created() {
         this.title = this.board.title
         this.writer = this.board.writer
         this.content = this.board.content
         this.regDate = this.board.regDate
     },
     methods: {
-        onSubmit () {
+        onSubmit() {
             const { title, content, writer } = this
             this.$emit('submit', { title, content, writer })
         }
@@ -82,10 +84,10 @@ export default {
 
 </script>
 
-<style>
+<!-- <style>
 .div{
   display: flex;
   justify-content: center;
 }
 
-</style>
+</style> -->
