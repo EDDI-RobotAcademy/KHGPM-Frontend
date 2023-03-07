@@ -8,7 +8,7 @@
          게시물 수정
       </router-link>
       <button @click="onDelete">삭제</button>
-      <router-link :to=" { name: 'JpaProductListPage' }">
+      <router-link :to="{ name: 'JpaProductListPage' }">
          돌아가기
       </router-link>
    </div>

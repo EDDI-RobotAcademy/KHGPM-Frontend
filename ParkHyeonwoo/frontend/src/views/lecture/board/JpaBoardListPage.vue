@@ -12,7 +12,6 @@
 import JpaBoardList from '@/components/lecture/board/JpaBoardList.vue'
 import { mapActions, mapState } from 'vuex' 
 // vuex -> 앱 내에 하나의 저장소(store) 를 놓고 모든 컴포넌트가 그 값에 접근할 수 있게끔 한다.
-// 흐름 : view -> action -> mutations(commit 함수에 의해 실행) -> state -> view 
 
 export default {
    components: { JpaBoardList }, // jpa-board-list 태그

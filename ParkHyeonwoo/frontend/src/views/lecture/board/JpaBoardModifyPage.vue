@@ -30,7 +30,7 @@ export default {
             'requestBoardToSpring',
             'requestBoardModifyToSpring',
         ]),
-        async onSubmit (payload) {
+        async onSubmit (payload) { // payload => 
             const { title, content, writer } = payload
             const boardId = this.boardId
 

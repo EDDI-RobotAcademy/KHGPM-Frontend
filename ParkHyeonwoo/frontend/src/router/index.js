@@ -16,6 +16,7 @@ import JpaBoardModifyPage from '@/views/lecture/board/JpaBoardModifyPage.vue'
 import JpaProductListPage from '@/views/lecture/product/JpaProductListPage.vue'
 import JpaProductRegisterPage from '@/views/lecture/product/JpaProductRegisterPage.vue'
 import JpaProductReadPage from '@/views/lecture/product/JpaProductReadPage.vue'
+import JpaProductModifyPage from '@/views/lecture/product/JpaProductModifyPage.vue'
 
 Vue.use(VueRouter)
 
@@ -95,6 +96,16 @@ const routes = [
     name: 'JpaProductReadPage',
     components: {
       default: JpaProductReadPage
+    },
+    props: {
+      default: true
+    }
+   },
+   {
+    path: '/product-modify/:productId',
+    name: 'JpaProductModifyPage',
+    components: {
+      default: JpaProductModifyPage
     },
     props: {
       default: true
