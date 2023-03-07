@@ -82,7 +82,7 @@ const routes = [
   {
     path: '/product-board-list-page',
     name: 'ProductBoardListPage',
-    component: ProductBoardListPage
+    component: ProductBoardListPage 
   }, 
 
 ]
