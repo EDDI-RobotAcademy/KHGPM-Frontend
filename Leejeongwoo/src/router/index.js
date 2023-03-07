@@ -12,6 +12,7 @@ import AxiosTestPage from "@/views/lecture/axiosTest/AxiosTestPage.vue"
 
 import practive from "@/views/practive/Practive.vue"
 import VforTest from "@/views/practive/v-forTest/V-forTest.vue"
+import VmodelTest from "@/views/practive/v-modelTest/V-modelTest.vue"
 import Oneroom from "@/views/practive/codingApple/CodingApple"
 
 
@@ -28,6 +29,26 @@ const routes = [
     //name은 없어도 실행과 문제 없은걸로 판단됨 헷갈려하지 말자
     name: 'home',
     component: HomeView
+  },
+  {
+    path: '/practive',
+    name: 'Practive',
+    component: practive
+  },
+  {
+    path: '/v-for-page',
+    name: 'VforPractive',
+    component: VforTest
+  },
+  {
+    path: '/v-model-page',
+    name: 'VmodelPractive',
+    component: VmodelTest
+  },
+  {
+    path: '/oneroom-page',
+    name: 'OneRoom',
+    component: Oneroom
   },
   {
     path: '/bind-test',
@@ -54,21 +75,6 @@ const routes = [
     path: '/axios-test-page',
     name: 'AxiosTestPage',
     component: AxiosTestPage
-  },
-  {
-    path: '/practive',
-    name: 'Practive',
-    component: practive
-  },
-  {
-    path: '/v-for-page',
-    name: 'VforPractive',
-    component: VforTest
-  },
-  {
-    path: '/oneroom-page',
-    name: 'OneRoom',
-    component: Oneroom
   },
   {
     path: '/board-list-page',
