@@ -65,7 +65,13 @@ export default {
     requestProductList ({ commit }) {
         return axios.get('http://localhost:7777/shop/list')
             .then((res) => {
-                commit(REQUEST_BOARD_LIST_TO_SPRING, res.data)
+                commit(REQUEST_PRODUCT_LIST_TO_SPRING, res.data)
+            })
+    },
+    requestBoardToSpring ({ commit }, boardId) {
+        return axios.get(`http://localhost:7777/shop/${productId}`)
+            .then((res) => {
+                commit(REQUEST_BOARD_TO_SPRING, res.data)
             })
     },
 }

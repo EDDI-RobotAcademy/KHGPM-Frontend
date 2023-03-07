@@ -1,7 +1,6 @@
 <template>
   <v-container>
-    <h2>종인몰</h2>
-    <router-link :to="{ name: 'ShopListPage' }">상품 등록</router-link>
+    <h2 class="title">종인몰</h2>
     <shop-list :products="products" />
   </v-container>
 </template>
@@ -24,4 +23,8 @@ export default {
 };
 </script>
 <style>
+.title {
+  display: flex;
+  justify-content: center;
+}
 </style>
