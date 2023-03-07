@@ -1,6 +1,7 @@
 import {
     REQUEST_BOARD_LIST_TO_SPRING,
     REQUEST_BOARD_TO_SPRING,
+    REQUEST_PRODUCT_LIST_TO_SPRING,
 } from './mutation-types'
 
 import axios from 'axios'
@@ -55,9 +56,9 @@ export default {
             .then((res) => {
                 commit(REQUEST_PRODUCT_LIST_TO_SPRING, res.data)
             })
-            .catch(() => {
-                alert("이것도 못하니 멍청아?")
-            })
+            // .catch(() => {
+            //     alert("이것도 못하니 멍청아?")
+            // })
     },
     requestCreateProductToSpring ({}, payload) {
         const { name, price  } = payload

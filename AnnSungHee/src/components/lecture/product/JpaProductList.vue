@@ -17,10 +17,11 @@
             {{ product.productId }}
           </td>
           <td align="left">
-            <router-link :to="{ name: 'JpaBoardReadPage',
+            <!-- <router-link :to="{ name: 'JpaBoardReadPage',
                               params: { productId: product.productId.toString() }}">
               {{ product.name }}
-            </router-link>
+            </router-link> -->
+            {{ product.name }}
           </td>
           <td align="right">
             {{ product.price }}
