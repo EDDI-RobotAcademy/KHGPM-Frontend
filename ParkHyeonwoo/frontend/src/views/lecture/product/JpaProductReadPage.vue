@@ -16,7 +16,37 @@
 </template>
 
 <script>
+
+   import JpaProductRead from '@/components/lecture/product/JpaProductRead.vue'
+   import { mapActions, mapState } from 'vuex'
+
 export default {
+
+   components: { JpaProductRead },
+   name: "JpaProductReadPage",
+   props: {
+      productId: {
+         type: String,
+         required: true,
+      }
+   },
+   computed: {
+      ...mapState(['product'])
+   },
+   methods: {
+      ...mapActions([
+         'requestProductToSpring',
+         'requestDeleteProductToSpring'
+      ]),
+      async onDelete() {
+         await this.requestDeleteProductToSpring(this.productId)
+         await this.$router.push({ name: 'JpaProductListPage' })
+      }
+   },
+   created() {
+      console.log('productId: ' + this.productId)
+      this.requestProductToSpring(this.productId)
+   }
 
 }
 </script>

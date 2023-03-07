@@ -69,4 +69,10 @@ export default {
                 commit(REQUEST_PRODUCT_LIST_TO_SPRING, res.data)
             })
     },
+    requestProductToSpring ({ commit }, productId) {
+        return axios.get(`http://localhost:7777/product/${productId}`)
+            .then((res) => {
+                commit(REQUEST_PRODUCT_TO_SPRING, res.data)
+            })
+    },
 }
