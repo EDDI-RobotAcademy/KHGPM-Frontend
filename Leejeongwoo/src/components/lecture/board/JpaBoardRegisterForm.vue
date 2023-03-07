@@ -25,6 +25,7 @@
   </div>
     <div>
       <button type="submit">등록</button>
+      <!-- 취소를 이전페이지인 보드 리스트로 링크 걸어 둔거임 -->
       <router-link to="{ name: 'JpaBoardListPage'}">
         취소
       </router-link>
@@ -55,11 +56,11 @@ export default {
 
 </script>
 
-<style>
+<!-- <style>
 
 .div{
   display: flex;
   justify-content: center;
 }
 
-</style>
+</style> -->

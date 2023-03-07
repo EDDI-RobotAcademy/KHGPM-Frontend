@@ -1,12 +1,13 @@
 <template>
-  <v-container>
-    <div align="center">
-      <h2>게시글 수정</h2>
-      <p><mark>작성한 게시글을 수정하는 페이지 입니다.</mark></p>
-      <jpa-board-modify-form v-if="board" :board="board" @submit="onSubmit"/>
-      <p v-else>로딩중 ........</p>
-    </div>
-  </v-container>
+    <v-container>
+        <div align="center">
+            <h2>게시글 수정</h2>
+            <p><mark>작성한 게시글을 수정하는 페이지 입니다.</mark></p>
+            <jpa-board-modify-form :board="board" @submit="onSubmit" />
+            <!-- <jpa-board-modify-form v-if="board" :board="board" @submit="onSubmit" />
+            <p v-else>로딩중 ........</p> -->
+        </div>
+    </v-container>
 </template>
 
 <script>
@@ -31,7 +32,7 @@ export default {
             'requestBoardToSpring',
             'requestBoardModifyToSpring',
         ]),
-        async onSubmit (payload) {
+        async onSubmit(payload) {
             const { title, content, writer } = payload
             const boardId = this.boardId
 
@@ -43,13 +44,11 @@ export default {
             })
         }
     },
-    created () {
+    created() {
         this.requestBoardToSpring(this.boardId)
     }
 }
 
 </script>
 
-<style>
-
-</style>
+<style></style>

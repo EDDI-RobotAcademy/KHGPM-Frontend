@@ -51,10 +51,10 @@ export default {
 }
 </script>
 
-<style>
+<!-- <style>
 .div{
   display: flex;
   justify-content: center;
 }
 
-</style>
+</style> -->

@@ -12,6 +12,7 @@
 <script>
 
 import JpaBoardList from '@/components/lecture/board/JpaBoardList.vue'
+//vuex는 상태(state)를 관리하는 라이브러리
 import { mapActions, mapState } from 'vuex'
 
 export default {
