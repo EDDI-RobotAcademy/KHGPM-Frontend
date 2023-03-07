@@ -29,7 +29,7 @@
 
     <div>
       <button type="submit">등록</button>
-      <router-link to="{ name: 'JpaProductListPage' }">
+      <router-link :to="{ name: 'JpaProductListPage' }">
         취소
       </router-link>
     </div>
