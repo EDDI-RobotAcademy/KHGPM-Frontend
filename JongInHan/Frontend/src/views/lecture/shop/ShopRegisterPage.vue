@@ -1,34 +1,23 @@
 <template>
-  <div class="product-registration-page">
-    <h1>상품 등록</h1>
-    <form @submit.prevent="registerProduct">
-      <label for="name">상품명</label>
-      <input type="text" id="name" v-model="name" required />
-      <label for="description">상품설명</label>
-      <textarea id="description" v-model="description" required></textarea>
-      <label for="price">가격</label>
-      <input type="number" id="price" v-model="price" required />
-      <button type="submit">상품등록하기</button>
-    </form>
-  </div>
+  <v-container>
+    <shop-register-form @submit="onSubmit" />
+  </v-container>
 </template>
 
 <script>
+import ShopRegisterForm from '@/components/lecture/shop/ShopRegisterForm.vue';
+import { mapActions } from 'vuex';
+
 export default {
-  data() {
-    return {
-      name: '',
-      description: '',
-      price: null,
-    };
-  },
+  components: { ShopRegisterForm },
+  name: 'ShopRegisterPage',
   methods: {
-    registerProduct() {
-      // Code to register product with backend or submit the form
-      alert(`Product registered: ${this.name}`);
-      this.name = '';
-      this.description = '';
-      this.price = null;
+    ...mapActions(['requestProduct']),
+    async onSubmit(payload) {
+      await this.requestProduct(payload);
+      await this.$router.push({
+        name: 'ShopListPage',
+      });
     },
   },
 };

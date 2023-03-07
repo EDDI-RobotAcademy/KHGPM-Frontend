@@ -50,5 +50,22 @@ export default {
             .catch(() => {
                 alert("문제 발생!")
             })
-    }
+    },
+    requestProduct ({}, payload) {
+        const { name, description, price } = payload
+        return axios.post('http://localhost:7777/shop/register',
+            { name, description, price })
+            .then(() => {
+                alert('상품 등록 성공!')
+            })
+            .catch(() => {
+                alert('문제 발생!')
+            })
+    },
+    requestProductList ({ commit }) {
+        return axios.get('http://localhost:7777/shop/list')
+            .then((res) => {
+                commit(REQUEST_BOARD_LIST_TO_SPRING, res.data)
+            })
+    },
 }
