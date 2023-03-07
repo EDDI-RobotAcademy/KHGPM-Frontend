@@ -1,0 +1,95 @@
+import {
+    REQUEST_BOARD_LIST_TO_SPRING,
+    REQUEST_BOARD_TO_SPRING,
+    REQUEST_PRODUCT_LIST_TO_SPRING,
+    REQUEST_PRODUCT_TO_SPRING,
+    
+} from './mutation-types'
+
+import axios from 'axios'
+
+export default {
+    requestCreateBoardToSpring({}, payload) {
+        const { title, content, writer } = payload
+        return axios.post('http://localhost:7777/board/register',
+            { title, content, writer })
+            .then(() => {
+                alert('게시물 등록 성공!')
+            })
+            .catch(() => {
+                alert('문제 발생!')
+            })
+    },
+    requestBoardListToSpring({ commit }) {
+        return axios.get('http://localhost:7777/board/list')
+            .then((res) => {
+                commit(REQUEST_BOARD_LIST_TO_SPRING, res.data)
+            })
+    },
+    requestBoardToSpring({ commit }, boardId) {
+        return axios.get(`http://localhost:7777/board/${boardId}`)
+            .then((res) => {
+                commit(REQUEST_BOARD_TO_SPRING, res.data)
+            })
+    },
+    requestDeleteBoardToSpring({}, boardId) {
+        return axios.delete(`http://localhost:7777/board/${boardId}`)
+        .then(() => {
+            alert("삭제 성공")
+        })
+        .catch(() => {
+            alert('문제 발생!')
+        })
+    },
+    requestBoardModifyToSpring({}, payload) {
+        const { boardId, title, writer, content } = payload
+        return axios.put(`http://localhost:7777/board/${boardId}`, { title, writer, content })
+            .then(() => {
+                alert("수정 성공")
+            })
+            .catch(() => {
+                alert('문제 발생!')
+            })
+    },
+    requestCreateProductToSpring({}, payload) {
+        const { name, price, writer, content } = payload
+        return axios.post('http://localhost:7777/product/register', { name, price, writer, content })
+            .then(() => {
+                alert('상품 등록 성공!')
+            })
+            .catch(() => {
+                alert('문제 발생!')
+            })
+    },
+    requestProductListToSpring({ commit }) {
+        return axios.get('http://localhost:7777/product/list')
+            .then((res) => {
+                commit(REQUEST_PRODUCT_LIST_TO_SPRING, res.data)
+            })
+    },
+    requestProductToSpring({ commit }, productNo) {
+        return axios.get(`http://localhost:7777/product/${productNo}`)
+            .then((res) => {
+                commit(REQUEST_PRODUCT_TO_SPRING, res.data)
+            })
+    },
+    requestDeleteProductToSpring({}, productNo) {
+        return axios.delete(`http://localhost:7777/product/${productNo}`)
+        .then(() => {
+            alert("삭제 성공")
+        })
+        .catch(() => {
+            alert('문제 발생!')
+        })
+    },
+    requestProductModifyToSpring({}, payload) {
+        const { productNo, name, price, writer, content } = payload
+        return axios.put(`http://localhost:7777/product/${productNo}`, { name, price, writer, content })
+            .then(() => {
+                alert("수정 성공")
+            })
+            .catch(() => {
+                alert('문제 발생!')
+            })
+    },
+}
