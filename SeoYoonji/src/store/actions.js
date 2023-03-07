@@ -77,4 +77,25 @@ export default {  //commit 할게 없어서 공객체 전달 ({})
                 commit(REQUEST_PRODUCT_TO_SPRING, res.data)
             })
     },
+    requestDeleteProductToSpring ({}, productId) {
+        return axios.delete(`http://localhost:7777/product/${productId}`)
+            .then(() => {
+                alert('삭제성공!')
+            })
+            .catch(() => {
+                alert('문제발생!')
+            })
+    },
+    requestProductModifyToSpring ({}, payload) {
+        const { title, price, productId, detail } = payload
+
+        return axios.put(`http://localhost:7777/product/${productId}`,
+            { title, price, detail })
+            .then(() => {
+                alert("수정 성공")
+            })
+            .catch(() => {
+                alert("문제 발생!")
+            })
+    },
 }
