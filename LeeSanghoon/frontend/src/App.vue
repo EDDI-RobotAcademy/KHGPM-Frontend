@@ -4,13 +4,15 @@
     <v-main>
       <router-view/>
     </v-main>
+    <Footer/>
   </v-app>
 </template>
 
 <script>
 
-import NavigationMenuPage from './views/lecture/navigation/NavigationMenuPage.vue';
-//import NavigationView from './views/lecture/navigation/NavigationView.vue';
+import Footer from '@/views/lecture/layoutForm/Footer.vue';
+import NavigationMenuPage from '@/views/lecture/layoutForm/navigation/NavigationMenuPage.vue';
+//import NavigationView from '@/views/lecture/layoutForm/navigation/NavigationView.vue';
 
 export default {
   name: 'App',
@@ -19,7 +21,8 @@ export default {
     //
   }),
   components: {
-    NavigationMenuPage
+    NavigationMenuPage,
+    Footer
   }
 };
 </script>
