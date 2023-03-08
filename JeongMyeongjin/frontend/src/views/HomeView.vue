@@ -10,6 +10,7 @@
         <router-link to="/axios-test-page">AxiosTestPage</router-link> |
         <router-link to="/board-list-page">게시판</router-link> |
         <router-link to="/product-list-page">상품 게시판</router-link> |
+        <router-link to="/file-upload">파일 업로드</router-link> |
       </nav>
       <router-view/>
     </div>
