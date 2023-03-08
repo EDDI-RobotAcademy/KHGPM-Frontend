@@ -8,12 +8,12 @@
           <span>EDDI</span>
         </v-toolbar-title>
         <v-spacer></v-spacer>
-        <v-btn>
-          테스트
+        <v-btn v-if="isTrue == true" text @click="clickToggle">
+            <span>테스트</span>
           <v-icon right>mdi-test-tube</v-icon>
         </v-btn>
-        <v-btn>
-          또 테스트
+        <v-btn v-else text @click="clickToggle">
+            <span>또 테스트</span>
           <v-icon right>mdi-history</v-icon>
         </v-btn>
       </v-app-bar>
@@ -46,17 +46,23 @@
  
   <script>
   export default {
-      name: "NavigationView",
-      data () {
-          return {
-              navigation_drawer: false,
-              links: [
-                  { icon: 'mdi-home', text: 'Home', name: 'home', route: '/' },
-                  { icon: 'mdi-share-variant-outline', text: 'Sharing', 
-                      name: 'JpaBoardListPage', route: '/board-list-page' },
-              ]
-          }
-      }
+    name: "NavigationView",
+   data () {
+     return {
+       isTrue: false,
+       navigation_drawer: false,
+       links: [
+           { icon: 'mdi-home', text: 'Home', name: 'home', route: '/' },
+           { icon: 'mdi-share-variant-outline', text: 'Sharing', 
+               name: 'JpaBoardListPage', route: '/board-list-page' },
+       ]
+     }
+   },
+   methods: {
+     clickToggle () {
+       this.isTrue = !this.isTrue
+     }
+   }
   }
   </script>
  
