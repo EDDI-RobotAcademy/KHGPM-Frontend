@@ -6,6 +6,10 @@
       v-for연습
     </router-link> 
 
+    <router-link :to="{name: 'VmodelPractive'}">
+      v-model연습
+    </router-link> 
+
     <router-link :to="{name: 'OneRoom'}">
       원룸 만들기
     </router-link>

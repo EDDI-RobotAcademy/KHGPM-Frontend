@@ -12,12 +12,19 @@ import AxiosTestPage from "@/views/lecture/axiosTest/AxiosTestPage.vue"
 
 import practive from "@/views/practive/Practive.vue"
 import VforTest from "@/views/practive/v-forTest/V-forTest.vue"
+import VmodelTest from "@/views/practive/v-modelTest/V-modelTest.vue"
 import Oneroom from "@/views/practive/codingApple/CodingApple"
 
 
-
-import JpaBoardList from "@/views/lecture/board/JpaBoardListPage.vue"
+import JpaBoardListPage from "@/views/lecture/board/JpaBoardListPage.vue"
 import JpaBoardRegisterPage from "@/views/lecture/board/JpaBoardRegisterPage.vue"
+import JpaBoardReadPage from "@/views/lecture/board/JpaBoardReadPage.vue"
+import JpaBoardModifyPage from "@/views/lecture/board/JpaBoardModifyPage.vue"
+
+import ProductListPage from "@/views/lecture/product/ProductListPage.vue"
+import ProductReadPage from "@/views/lecture/product/ProductReadPage.vue"
+import ProductModifyPage from "@/views/lecture/product/ProductModifyPage.vue"
+import ProductRegisterPage from "@/views/lecture/product/ProductRegisterPage.vue"
 
 Vue.use(VueRouter)
 
@@ -27,6 +34,26 @@ const routes = [
     //name은 없어도 실행과 문제 없은걸로 판단됨 헷갈려하지 말자
     name: 'home',
     component: HomeView
+  },
+  {
+    path: '/practive',
+    name: 'Practive',
+    component: practive
+  },
+  {
+    path: '/v-for-page',
+    name: 'VforPractive',
+    component: VforTest
+  },
+  {
+    path: '/v-model-page',
+    name: 'VmodelPractive',
+    component: VmodelTest
+  },
+  {
+    path: '/oneroom-page',
+    name: 'OneRoom',
+    component: Oneroom
   },
   {
     path: '/bind-test',
@@ -54,32 +81,70 @@ const routes = [
     name: 'AxiosTestPage',
     component: AxiosTestPage
   },
-  {
-    path: '/practive',
-    name: 'Practive',
-    component: practive
-  },
-  {
-    path: '/v-for-page',
-    name: 'VforPractive',
-    component: VforTest
-  },
-  {
-    path: '/oneroom-page',
-    name: 'OneRoom',
-    component: Oneroom
-  },
+
+  //게시판
   {
     path: '/board-list-page',
     name: 'JpaBoardListPage',
-    component: JpaBoardList
+    component: JpaBoardListPage
   },
   {
     path: '/board-register',
     name: 'JpaBoardRegisterPage',
     component: JpaBoardRegisterPage
   },
+  {
+    path: '/board-read/:boardId',
+    name: 'JpaBoardReadPage',
+    components: {
+      default: JpaBoardReadPage
+    },
+    props: {
+      default: true
+    }
+  },
+  {
+    path: '/board-modify/:boardId',
+    name: 'JpaBoardModifyPage',
+    components: {
+      default: JpaBoardModifyPage
+    },
+    props: {
+      default: true
+    }
+  },
 
+  //상품 게시판
+  {
+    path: '/product-list-page',
+    name: 'ProductListPage',
+    component: ProductListPage
+  },
+  {
+    path: '/product-register',
+    name: 'ProductRegisterPage',
+    component: ProductRegisterPage
+  },
+  {
+    path: '/product-read/:productId',
+    name: 'ProductReadPage',
+    components: {
+      default: ProductReadPage
+    },
+    props: {
+      default: true
+    }
+  },
+  {
+    path: '/product-modify/:productId',
+    name: 'ProductModifyPage',
+    components: {
+      default: ProductModifyPage
+    },
+    props: {
+      default: true
+    }
+  }
 ]
 
 const router = new VueRouter({

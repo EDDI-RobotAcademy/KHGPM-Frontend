@@ -12,6 +12,7 @@
         <router-link to="/component-test">컴포넌트 테스트</router-link> |
         <router-link to="/axios-test-page">Vue에서 Spring으로 데이터 전송하기</router-link> |
         <router-link to="/board-list-page">게시판</router-link> |
+        <router-link to="/product-list-page">상품</router-link> |
       </nav>
       <router-view/>
     </div>
