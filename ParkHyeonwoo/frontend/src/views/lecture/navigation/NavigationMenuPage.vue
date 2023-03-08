@@ -1,23 +1,34 @@
 <template>
   <nav>
-   <v-toolbar dense dark>
+   <v-app-bar color="dark" class="flex-grow-0" app dark>
       <v-app-bar-nav-icon @click="navigation_drawer = !navigation_drawer" />
-      <v-toolbar-title>
-         <span class="font-weight-light">EDDI</span>
-         <span>꾸르티프!</span>
+      <v-img class="mx-2" src="@/assets/logo.png" max-height="40" max-width="40" contain/>
+      <v-toolbar-title class="text-uppercase text--darken-4">
+         <span>EDDI</span>
       </v-toolbar-title>
-      <v-toolbar-items>
-         <v-btn text v-for="link in links" :key="link.name" router :to="link.route">
-           {{ link.text }}
-         </v-btn>
-      </v-toolbar-items>
-   </v-toolbar>
+      <v-spacer></v-spacer>
+      <v-btn>
+         테스트1
+         <v-icon right>mdi-test-tube</v-icon>
+      </v-btn>
+      <v-btn>
+         테스트2
+         <v-icon right>mdi-test-tube</v-icon>
+      </v-btn>
+   </v-app-bar>
 
    <v-navigation-drawer app v-model="navigation_drawer">
+      <v-list-item>
+         <v-list-item-content>
+            <v-list-item-title class="text-h6">EDDI</v-list-item-title>
+            <v-list-item-subtitle>Functions</v-list-item-subtitle>
+         </v-list-item-content>
+      </v-list-item>
+      <v-divider></v-divider>
       <v-list nav dense>
          <v-list-item v-for="link in links" :key="link.name" router :to="link.route">
             <v-list-item-action>
-               <v-icon>
+               <v-icon left>
                   {{ link.icon }}
                </v-icon>
             </v-list-item-action>
