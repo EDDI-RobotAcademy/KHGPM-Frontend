@@ -7,23 +7,23 @@
             <span>안녕</span>
         </v-toolbar-title>
         <v-toolbar-items>
-            <v-btn>
-                망고요구르트
+            <v-btn text v-for="link in links" :key="link.icon" :to="link.route">
+                {{ link.text }}
             </v-btn>
         </v-toolbar-items>
     </v-toolbar>
 
-    <v-navigation-drawer app v-model="navigation_drawer" temporary>
+    <v-navigation-drawer app v-model="navigation_drawer">
        <v-list> 
-        <v-list-item>
+        <v-list-item v-for="link in links" :key="link.name" router :to="link.route">
             <v-list-item-action>
                 <v-icon>
-                    아직 없
+                    {{ link.icon }}
                 </v-icon>
             </v-list-item-action>
             <v-list-item-content>
                 <v-list-item-title>
-                    test
+                    {{ link.text }}
                 </v-list-item-title>
             </v-list-item-content>
         </v-list-item>
@@ -39,8 +39,8 @@ export default {
         return {
             navigation_drawer: false,
             links: [
-                { icon: '', text: '', name: '', route: ''},
-                { icon: '', text: '', name: '', route: ''},
+                { icon: 'mdi-home', text: 'Home', name: 'home', route: '/'},
+                { icon: 'mdi-share-variant-outline', text: 'Sharing', name: 'JpaBoardListPage', route: '/board-list-page'},
             ]
         }
     }
