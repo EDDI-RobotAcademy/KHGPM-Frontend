@@ -1,5 +1,6 @@
 <template>
   <nav>
+   <!-- app-bar 로 묶어놓으면 자동으로 위치조정을 해준다. -->
    <v-app-bar color="dark" class="flex-grow-0" app dark>
       <v-app-bar-nav-icon @click="navigation_drawer = !navigation_drawer" />
       <v-img class="mx-2" src="@/assets/logo.png" max-height="40" max-width="40" contain/>
@@ -7,13 +8,13 @@
          <span>EDDI</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn>
-         테스트1
+      <v-btn v-if="isTrue == true" @click="clickToggle">
+         <span>테스트1</span>
          <v-icon right>mdi-test-tube</v-icon>
       </v-btn>
-      <v-btn>
-         테스트2
-         <v-icon right>mdi-test-tube</v-icon>
+      <v-btn v-else @click="clickToggle">
+         <span>테스트2</span>
+         <v-icon right>mdi-history</v-icon>
       </v-btn>
    </v-app-bar>
 
@@ -46,14 +47,20 @@
 <script>
 
 export default {
-   name: "NavigationView",
+   name: "NavigationMenuPage",
    data() {
       return {
+         isTrue: false,
          navigation_drawer: false,
          links: [
             { icon: 'mdi-home', text: 'Home', name: 'home', route: '/' },
             { icon: 'mdi-share-variant-outline', text: 'Sharing', name: 'JpaBoardListPage', route: '/board-list-page' },
          ]
+      }
+   },
+   methods: {
+      clickToggle() {
+         this.isTrue = !this.isTrue
       }
    }
 
