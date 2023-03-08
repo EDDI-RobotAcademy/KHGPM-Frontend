@@ -28,7 +28,7 @@ export default {
         },
         submitFiles () {
             let formData = new FormData()
-
+            // 파일 설명. 사용자가 직접 입력할 수 있도록 컴포넌트로 빼도 된다
             let fileinfo = {
                 price: 50000,
                 test: "test",
