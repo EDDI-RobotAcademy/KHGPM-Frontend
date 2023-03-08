@@ -22,6 +22,7 @@ import JpaProductModifyPage from "@/views/lecture/product/JpaProductModifyPage.v
 
 import FileUploadPage from "@/views/lecture/file/FileUploadPage.vue"
 import ImageGalleryPage from "@/views/lecture/gallery/ImageGalleryPage.vue"
+import LifeCyclePage from "@/views/lecture/lifecycle/LifeCyclePage.vue";
 
 Vue.use(VueRouter)
 
@@ -125,6 +126,11 @@ const routes = [
     path: '/image-gallery',
     name: 'ImageGalleryPage',
     component: ImageGalleryPage
+  },
+  {
+    path: '/life-cycle',
+    name: 'LifeCyclePage',
+    component: LifeCyclePage
   }
 
   
