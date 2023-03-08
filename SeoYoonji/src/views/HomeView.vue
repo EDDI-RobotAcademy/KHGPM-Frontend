@@ -6,11 +6,12 @@
         <router-link to="/bind-test">BindTest</router-link> |
         <router-link to="/click-test">클릭 테스트</router-link> |
         <router-link to="/component-test">component테스트</router-link> |
-        <router-link to="/emit-test-board-game">emit 테스트(보드게임)</router-link> |
+        <router-link to="/emit-test-board-game">emit테스트(보드게임)</router-link> |
         <router-link to="/axios-test-page">Vue에서Spring으로데이터전송</router-link> |
-        <router-link to="/board-list-page">boardList</router-link> |
-        <router-link to="/product-list-page">상품페이지</router-link> |
+        <router-link to="/board-list-page">게시판</router-link> |
+        <router-link to="/product-list-page">상품게시판</router-link> | <br>
         <router-link to="/file-upload">파일업로드</router-link> |
+        <router-link to="/image-gallery">이미지업로드</router-link> |
       </nav>
       <router-view/>
     </div>
