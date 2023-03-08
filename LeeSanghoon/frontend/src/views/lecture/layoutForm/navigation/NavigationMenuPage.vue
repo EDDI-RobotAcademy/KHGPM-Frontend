@@ -47,7 +47,7 @@
 <script>
 
 export default {
-  name: "NavigationView",
+  name: "NavigationMenuPage",
   data () {
     return {
       isTrue: false,
