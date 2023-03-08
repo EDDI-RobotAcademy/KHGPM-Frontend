@@ -10,7 +10,8 @@
         <router-link to="/axios-test-page">Vue에서 Spring으로 데이터 전송하기</router-link> |
         <router-link to="/board-list-page">게시판</router-link> |
         <router-link to="/product-list-page">상품 게시판</router-link> |
-        <router-link to="/file-upload">파일 업로드</router-link> |
+        <router-link to="/file-upload">파일 업로드</router-link> | <br/>
+        <router-link to="/image-gallery">이미지 갤러리</router-link> |
       </nav>
       <router-view/>
     </div>
