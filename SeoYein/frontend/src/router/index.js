@@ -7,7 +7,6 @@ import ClickEventTest from "@/views/lecture/clickEvent/ClickEventTest.vue"
 import ComponentTest from "@/views/lecture/componentTest/ComponentTest.vue"
 
 import EmitTestBoardGame from "@/views/lecture/emitTest/EmitTestBoardGame.vue"
-
 import AxiosTestPage from "@/views/lecture/axiosTest/AxiosTestPage.vue"
 
 import JpaBoardListPage from "@/views/lecture/board/JpaBoardListPage.vue"
@@ -15,10 +14,10 @@ import JpaBoardRegisterPage from "@/views/lecture/board/JpaBoardRegisterPage.vue
 import JpaBoardReadPage from "@/views/lecture/board/JpaBoardReadPage.vue"
 import JpaBoardModifyPage from "@/views/lecture/board/JpaBoardModifyPage.vue"
 
-import JpaProductListPage from "@/views/lecture/product/JpaProductListPage.vue"
-import JpaProductRegisterPage from "@/views/lecture/product/JpaProductRegisterPage.vue"
-import JpaProductReadPage from "@/views/lecture/product/JpaProductReadPage.vue"
-import JpaProductModifyPage from "@/views/lecture/product/JpaProductModifyPage.vue"
+import ProductListPage from "@/views/lecture/product/ProductListPage.vue"
+import ProductRegisterPage from "@/views/lecture/product/ProductRegisterPage.vue"
+import ProductReadPage from "@/views/lecture/product/ProductReadPage.vue"
+import ProductModifyPage from "@/views/lecture/product/ProductModifyPage.vue"
 
 Vue.use(VueRouter)
 
@@ -64,7 +63,7 @@ const routes = [
     component: JpaBoardRegisterPage
   },
   {
-    path: '/board-read/:boardId',
+    path: '/board-read/:boardId', // 콜론으로 가변인자 처리
     name: 'JpaBoardReadPage',
     components: {
       default: JpaBoardReadPage
@@ -74,7 +73,7 @@ const routes = [
     }
   },
   {
-    path: '/board-modify/:boardId',
+    path: '/board-modify/:boardId', // 콜론으로 가변인자 처리
     name: 'JpaBoardModifyPage',
     components: {
       default: JpaBoardModifyPage
@@ -85,29 +84,29 @@ const routes = [
   },
   {
     path: '/product-list-page',
-    name: 'JpaProductListPage',
-    component: JpaProductListPage
+    name: 'ProductListPage',
+    component: ProductListPage
   },
   {
     path: '/product-register',
-    name: 'JpaProductRegisterPage',
-    component: JpaProductRegisterPage
+    name: 'ProductRegisterPage',
+    component: ProductRegisterPage
   },
   {
-    path: '/product-read/:productId',
-    name: 'JpaProductReadPage',
+    path: '/product-read/:productId', // 콜론으로 가변인자 처리
+    name: 'ProductReadPage',
     components: {
-      default: JpaProductReadPage
+      default: ProductReadPage
     },
     props: {
       default: true
     }
   },
   {
-    path: '/product-modify/:productId',
-    name: 'JpaProductModifyPage',
+    path: '/product-modify/:productId', // 콜론으로 가변인자 처리
+    name: 'ProductModifyPage',
     components: {
-      default: JpaProductModifyPage
+      default: ProductModifyPage
     },
     props: {
       default: true
