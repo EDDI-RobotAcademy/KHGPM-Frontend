@@ -18,6 +18,8 @@ import ProductListPage from "@/views/lecture/product/ProductListPage.vue"
 import ProductRegisterPage from "@/views/lecture/product/ProductRegisterPage.vue"
 import ProductReadPage from "@/views/lecture/product/ProductReadPage.vue"
 import ProductModifyPage from "@/views/lecture/product/ProductModifyPage.vue"
+import FileUploadPage from "@/views/lecture/file/FileUploadPage.vue"
+import ImageGalleryPage from "@/views/lecture/gallery/ImageGalleryPage.vue"
 
 Vue.use(VueRouter)
 
@@ -111,6 +113,16 @@ const routes = [
     props: {
       default: true
     }
+  },
+  {
+    path: '/file-upload',
+    name: 'FileUploadPage',
+    component: FileUploadPage
+  },
+  {
+    path: '/image-gallery',
+    name: 'ImageGalleryPage',
+    component: ImageGalleryPage
   }
 
   
