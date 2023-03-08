@@ -51,7 +51,7 @@ export default {
     data () {
     return {
       isTrue: false,
-      navigation_drawer: false,
+      navigation_drawer: false, // true로 지정하면 기본적으로 메뉴가 튀어나와있다.
       links: [
           { icon: 'mdi-home', text: 'Home', name: 'home', route: '/' },
           { icon: 'mdi-share-variant-outline', text: 'Sharing', 
