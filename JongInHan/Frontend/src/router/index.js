@@ -93,8 +93,13 @@ const routes = [
   {
     path: '/shop-modify-page',
     name: 'ShopModifyPage',
-    component: ShopModifyPage,
+    component: {
+      default: ShopModifyPage,
   },
+  props: {
+    default: true,
+  },
+}
 ];
 
 const router = new VueRouter({
