@@ -17,7 +17,7 @@
           <v-icon right>mdi-history</v-icon>
         </v-btn>
       </v-app-bar>
-  
+      <!--app : app.view 에 보여짐-->
       <v-navigation-drawer app v-model="navigation_drawer">
         <v-list-item>
           <v-list-item-content>
