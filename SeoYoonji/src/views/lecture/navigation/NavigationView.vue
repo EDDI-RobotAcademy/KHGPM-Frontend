@@ -14,7 +14,7 @@
     </v-toolbar>
 
     <v-navigation-drawer app v-model="navigation_drawer">
-       <v-list> 
+       <v-list nav dense> 
         <v-list-item v-for="link in links" :key="link.name" router :to="link.route">
             <v-list-item-action>
                 <v-icon>
@@ -38,7 +38,7 @@ export default {
     data () {
         return {
             navigation_drawer: false,
-            links: [
+            links: [  //mdi 아이콘명을 icon 속성으로 작성하면됨(mdi붙여서)
                 { icon: 'mdi-home', text: 'Home', name: 'home', route: '/'},
                 { icon: 'mdi-share-variant-outline', text: 'Sharing', name: 'JpaBoardListPage', route: '/board-list-page'},
             ]
