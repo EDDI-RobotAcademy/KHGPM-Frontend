@@ -18,6 +18,8 @@ import JpaProductRegisterPage from '@/views/lecture/product/JpaProductRegisterPa
 import JpaProductReadPage from '@/views/lecture/product/JpaProductReadPage.vue'
 import JpaProductModifyPage from '@/views/lecture/product/JpaProductModifyPage.vue'
 
+import FileUploadPage from '@/views/lecture/file/FileUploadPage.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -111,6 +113,11 @@ const routes = [
       default: true
     }
    },
+   {
+    path: '/file-upload',
+    name: 'FileUploadPage',
+    component: FileUploadPage
+  },
 ]
 
 const router = new VueRouter({
