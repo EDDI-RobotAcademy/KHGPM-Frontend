@@ -1,5 +1,6 @@
 <template>
   <v-app>
+    <navigation-view/>
     <v-main>
       <router-view/>
     </v-main>
@@ -8,11 +9,16 @@
 
 <script>
 
+import NavigationView from './views/lecture/navigation/NavigationView.vue';
+
 export default {
   name: 'App',
 
   data: () => ({
     //
   }),
+  components: {
+    NavigationView
+  }
 };
 </script>
