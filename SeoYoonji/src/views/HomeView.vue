@@ -10,6 +10,7 @@
         <router-link to="/axios-test-page">Vue에서Spring으로데이터전송</router-link> |
         <router-link to="/board-list-page">boardList</router-link> |
         <router-link to="/product-list-page">상품페이지</router-link> |
+        <router-link to="/file-upload">파일업로드</router-link> |
       </nav>
       <router-view/>
     </div>
