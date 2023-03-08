@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <navigation-view/>
+    <navigation-menu-page/>
     <v-main>
       <router-view/>
     </v-main>
@@ -9,7 +9,8 @@
 
 <script>
 
-import NavigationView from './views/lecture/navigation/NavigationView.vue';
+import NavigationMenuPage from './views/lecture/navigation/NavigationMenuPage.vue';
+//import NavigationView from './views/lecture/navigation/NavigationView.vue';
 
 export default {
   name: 'App',
@@ -18,7 +19,7 @@ export default {
     //
   }),
   components: {
-    NavigationView
+    NavigationMenuPage
   }
 };
 </script>
