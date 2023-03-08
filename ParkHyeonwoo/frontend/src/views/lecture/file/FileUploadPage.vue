@@ -35,19 +35,19 @@ export default {
          }
 
          // 사진
-         for(let idx = 0; idx < this.files.length; idx++) {
-            formData.append('fileList', this.files[idx])
+         for(let idx = 0; idx < this.files.length; idx++) { // 업로드한 파일 전부 formData에 담는다.
+            formData.append('fileList', this.files[idx]) // fileList -> MULTIPART_FORM_DATA, List형식으로 전송
          }
 
          // 글자
          formData.append(
             "info",
-            new Blob([JSON.stringify(fileinfo)], { type: "application/json" })
+            new Blob([JSON.stringify(fileinfo)], { type: "application/json" }) // info -> APPLICATION_JSON_VALUE
          )
 
          axios.post('http://localhost:7777/file/uploadImgsWithText', formData)
             .then(res => {
-               alert('처리 결과: ' + res.data)
+               alert('처리 결과: ' + res.data) // res.data -> Spring FileController 의 리턴값
             })
             .catch(() => {
                alert('문제 발생!')

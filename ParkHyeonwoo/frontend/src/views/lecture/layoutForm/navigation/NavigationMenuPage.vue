@@ -1,6 +1,5 @@
 <template>
   <nav>
-   <!-- app-bar 로 묶어놓으면 자동으로 위치조정을 해준다. -->
    <v-app-bar color="dark" class="flex-grow-0" app dark>
       <v-app-bar-nav-icon @click="navigation_drawer = !navigation_drawer" />
       <v-img class="mx-2" src="@/assets/logo.png" max-height="40" max-width="40" contain/>
