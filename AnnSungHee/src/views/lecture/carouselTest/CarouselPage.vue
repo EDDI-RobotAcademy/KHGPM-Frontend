@@ -38,5 +38,14 @@
   </script>
   
   <style>
-  
+  /* 
+  :cycle="cycle" 사진의 끝까지 지나가면 다시 돌아오게 해줌 (true, or false) 
+  :interval="interval" 사진이 자동으로 넘어가는 시간을 설정 ms 기준
+  :height="height" 높이 설정
+  v-model="model" 현재 사진의 인덱스 설정 기본값 0으로 초기화
+  <v-sheet> v-sheet은 높이와 폭을 설정할수 있다.
+  :height="height" 해당 태그가 감싸고 있는 높이를 height로 설정한다.
+  tile은 이미지가 타일링 배치되도록 설정한다.
+  contain 속성은 이미지가 해당 요소에 맞게 조정되도록 해주는 역할
+  */
   </style>
