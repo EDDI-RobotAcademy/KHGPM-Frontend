@@ -1,7 +1,6 @@
 <template>
   <v-container>
     <div id="home">
-      <nav>
         <router-link to="/practive">정우 연습 공간</router-link>|
         
         <router-link to="/">Home!</router-link> |
@@ -12,7 +11,9 @@
         <router-link to="/component-test">컴포넌트 테스트</router-link> |
         <router-link to="/axios-test-page">Vue에서 Spring으로 데이터 전송하기</router-link> |
         <router-link to="/board-list-page">게시판</router-link> |
-      </nav>
+        <router-link to="/product-list-page">상품</router-link> |
+        <router-link to="/file-upload">파일 업로드</router-link> |
+        <router-link to="/image-gallery">이미지 갤러리</router-link> |
       <router-view/>
     </div>
   </v-container>

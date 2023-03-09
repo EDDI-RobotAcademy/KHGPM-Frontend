@@ -17,8 +17,6 @@ module.exports = {
 	rules: {
 		'vue/multi-word-component-names': ['error', {
 			ignores: ['Home']
-		}],
-        'eslint-disable-next-line': "off",
-        'eslint-disable': "off"
+		}]
 	}
 }
