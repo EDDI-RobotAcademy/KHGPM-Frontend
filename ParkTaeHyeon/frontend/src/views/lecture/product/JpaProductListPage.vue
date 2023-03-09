@@ -1,0 +1,32 @@
+<template>
+    <v-container>
+        <h2>Vue + Spring + Jpa Products List</h2>
+            <router-link :to="{ name: 'JpaProductRegisterPage' }">
+                상품 등록
+            </router-link>
+        <jpa-product-list :product="products"/>
+    </v-container>
+</template>
+
+<script>
+import JpaProductList from '@/components/lecture/product/JpaProductList.vue'
+import { mapActions, mapState } from 'vuex'
+
+export default {
+    components: { JpaProductList },
+    name: "JpaProductListPage",
+    computed: {
+    ...mapState([
+        'products'
+    ]),
+    },
+    mounted() {
+        this.requestProductListToSpring()
+    },
+    methods: {
+        ...mapActions([
+            'requestProductListToSpring'
+        ])
+    }
+}
+</script>
