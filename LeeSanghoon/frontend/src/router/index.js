@@ -22,7 +22,8 @@ import JpaProductModifyPage from "@/views/lecture/product/JpaProductModifyPage.v
 
 import FileUploadPage from "@/views/lecture/file/FileUploadPage.vue"
 import ImageGalleryPage from "@/views/lecture/gallery/ImageGalleryPage.vue"
-import LifeCyclePage from "@/views/lecture/lifecycle/LifeCyclePage.vue";
+import LifeCyclePage from "@/views/lecture/lifecycle/LifeCyclePage.vue"
+import CarouselPage from "@/views/lecture/carouselTest/CarouselPage.vue"
 
 Vue.use(VueRouter)
 
@@ -131,6 +132,11 @@ const routes = [
     path: '/life-cycle',
     name: 'LifeCyclePage',
     component: LifeCyclePage
+  },
+  {
+    path: '/carousel-page',
+    name: 'CarouselPage',
+    component: CarouselPage
   }
 
   
