@@ -4,10 +4,11 @@
       <table>
         <tr>
           <th width="100">No.</th>
-          <th width="200">카테고리</th>
+          <th width="150">Kategorie</th>
           <th width="350">상품명</th>
           <th width="150">브랜드</th>
-          <th width="150">등록일자</th>
+          <th width="150">가격</th>
+          <th width="200">등록일자</th>
         </tr>
         <tr v-if="!products || (Array.isArray(products) && products.length === 0)">
           <td colspan="5">
@@ -29,6 +30,9 @@
           </td>
           <td>
             {{ product.productBrand }}
+          </td>
+          <td>
+            {{ product.productPrice }}원
           </td>
           <td>
             {{ product.regDate }}

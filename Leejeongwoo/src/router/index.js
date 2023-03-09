@@ -26,6 +26,10 @@ import ProductReadPage from "@/views/lecture/product/ProductReadPage.vue"
 import ProductModifyPage from "@/views/lecture/product/ProductModifyPage.vue"
 import ProductRegisterPage from "@/views/lecture/product/ProductRegisterPage.vue"
 
+import FileUploadPage from "@/views/lecture/file/FileUploadPage.vue"
+import ImageGalleryPage from "@/views/lecture/gallery/ImageGalleryPage.vue"
+
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -144,6 +148,18 @@ const routes = [
     props: {
       default: true
     }
+  },
+  
+  //이미지 파일업로드
+  {
+    path: '/file-upload',
+    name: 'FileUploadPage',
+    component: FileUploadPage
+  },
+  {
+    path: '/image-gallery',
+    name: 'ImageGalleryPage',
+    component: ImageGalleryPage
   }
 ]
 
