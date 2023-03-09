@@ -30,7 +30,7 @@ export default {
             ],
             cycle: true,
             interval: 2500, // ms 단위
-            height: 700,
+            height: 1500,
         }
     }
 }

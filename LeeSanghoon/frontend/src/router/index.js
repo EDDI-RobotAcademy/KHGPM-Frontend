@@ -24,6 +24,7 @@ import FileUploadPage from "@/views/lecture/file/FileUploadPage.vue"
 import ImageGalleryPage from "@/views/lecture/gallery/ImageGalleryPage.vue"
 import LifeCyclePage from "@/views/lecture/lifecycle/LifeCyclePage.vue"
 import CarouselPage from "@/views/lecture/carouselTest/CarouselPage.vue"
+import DialogTestPage from "@/views/lecture/dialogTest/DialogTestPage.vue"
 
 Vue.use(VueRouter)
 
@@ -137,8 +138,13 @@ const routes = [
     path: '/carousel-page',
     name: 'CarouselPage',
     component: CarouselPage
+  },
+  {
+    path: '/dialog-test-page',
+    name: 'DialogTestPage',
+    component: DialogTestPage
   }
-
+  
   
 ]
 
