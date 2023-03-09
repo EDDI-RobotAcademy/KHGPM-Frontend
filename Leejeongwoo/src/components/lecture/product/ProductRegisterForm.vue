@@ -30,12 +30,15 @@
       <tr>
         <td>가격</td>
         <td>
-          <input type="text" v-model="productPrice"/>
+          <input type="number" v-model="productPrice"/>
         </td>
       </tr>
     </table>
   </div>
-    <div>
+  <div>
+      <label>Files
+        <input type="file" id="files" ref="files" alt="여기에 이미지 표시됨"/>
+      </label>
       <button type="submit">등록</button>
       <!-- 취소를 이전페이지인 보드 리스트로 링크 걸어 둔거임 -->
       <router-link :to="{ name: 'ProductListPage'}">
