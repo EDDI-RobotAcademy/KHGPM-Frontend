@@ -12,6 +12,9 @@
         <router-link to="/product-list-page">상품 게시판</router-link> |
         <router-link to="/file-upload">파일 업로드</router-link> | <br/>
         <router-link to="/image-gallery">이미지 갤러리</router-link> |
+        <router-link to="/carousel-page">캐러셀 테스트</router-link> |
+        <router-link to="/dialog-test-page">다이얼로그 테스트</router-link> |
+        <router-link to="/table-test-page">테이블 테스트</router-link> |
       </nav>
       <router-view/>
     </div>
