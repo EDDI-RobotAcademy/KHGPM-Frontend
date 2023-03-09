@@ -7,7 +7,7 @@
           @click:row="readRow"
           show-select
           class="elevation-1"
-          item-key="comNum"
+          item-key="boardId"
           v-model="selectedItems"/>
     </v-container>
   </template>
@@ -28,6 +28,7 @@
                   { text: '등록일자', value: 'regDate', width: "100px" },
               ],
               selectedItems: [],
+             // boardsWithSelected: [this.boards.map(x => ({...x, isSelectable: false}))],
           }
       },
       computed: {
@@ -37,9 +38,6 @@
       },
       mounted () {
           this.requestBoardListToSpring()
-      },
-      beforeUpdate () {
-          alert(JSON.stringify(this.selectedItems))
       },
       methods: {
           ...mapActions([
