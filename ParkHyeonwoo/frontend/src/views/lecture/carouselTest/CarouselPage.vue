@@ -22,7 +22,7 @@ export default {
    name: "CarouselPage",
    data() {
       return {
-         model: 0,
+         model: 1, // 첫번째로 사용자에게 보여줄 이미지
          pictures: [
             { img: require("@/assets/carousel/img1.png")},
             { img: require("@/assets/carousel/img2.jpg")},
