@@ -21,6 +21,8 @@ import JpaProductModifyPage from '@/views/lecture/product/JpaProductModifyPage.v
 import FileUploadPage from '@/views/lecture/file/FileUploadPage.vue'
 import ImageGalleryPage from '@/views/lecture/gallery/ImageGalleryPage.vue'
 import CarouselPage from '@/views/lecture/carouselTest/CarouselPage.vue'
+import DialogTestPage from '@/views/lecture/dialogTest/DialogTestPage.vue'
+import TableTestPage from '@/views/lecture/tableTest/TableTestPage.vue'
 
 Vue.use(VueRouter)
 
@@ -129,6 +131,16 @@ const routes = [
     path: '/carousel-page',
     name: 'CarouselPage',
     component: CarouselPage
+  },
+  {
+    path: '/dialog-test-page',
+    name: 'DialogTestPage',
+    component: DialogTestPage
+  },
+  {
+    path: '/table-test-page',
+    name: 'TableTestPage',
+    component: TableTestPage
   },
 ]
 

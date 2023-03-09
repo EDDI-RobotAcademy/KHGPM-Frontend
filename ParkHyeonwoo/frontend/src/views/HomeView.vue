@@ -14,6 +14,7 @@
         <router-link to="/image-gallery">이미지 갤러리</router-link> |
         <router-link to="/carousel-page">크로셀 테스트</router-link> |
         <router-link to="/dialog-test-page">Dialog 테스트</router-link> |
+        <router-link to="/table-test-page">Table 테스트</router-link> |
       </nav>
       <router-view/>
     </div>
