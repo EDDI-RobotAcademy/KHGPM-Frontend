@@ -3,7 +3,7 @@
     <v-data-table :headers="headerTitle" 
                 :items="contents"
                 :items-per-page="10"
-                class="elevation-1">
+                class="elevation-1"> <!--그림자 효과-->
     </v-data-table>
   </v-container>
 </template>
