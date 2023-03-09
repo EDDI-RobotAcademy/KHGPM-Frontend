@@ -21,6 +21,9 @@ import JpaProductRegisterPage from "@/views/lecture/product/JpaProductRegisterPa
 import FileUploadPage from "@/views/lecture/file/FileUploadPage.vue"
 import ImageGalleryPage from "@/views/lecture/gallery/ImageGalleryPage.vue"
 
+import LifeCyclePage from "@/views/lecture/lifecycle/LifeCyclePage.vue"
+import CarouslePage from "@/views/lecture/carouselTest/CarouselPage.vue"
+import DialogTestPage from "@/views/lecture/dialogTest/DialogTestPage.vue"
 Vue.use(VueRouter)
 
 const routes = [
@@ -103,6 +106,21 @@ const routes = [
     path: '/image-gallery',
     name: 'ImageGalleryPage',
     component: ImageGalleryPage
+  },
+  {
+    path: '/life-cycle',
+    name: 'LifeCyclePage',
+    component: LifeCyclePage
+  },
+  {
+    path: '/carousel-page',
+    name: 'CarouslePage',
+    component: CarouslePage
+  },
+  {
+    path: '/dialog-test-page',
+    name: 'DialogTestPage',
+    component: DialogTestPage
   }
 ]
 
