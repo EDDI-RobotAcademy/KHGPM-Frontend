@@ -15,6 +15,8 @@
         <router-link to="/life-cycle">라이프 사이클</router-link> |
         <router-link to="/carousel-page">크로셀 테스트</router-link> |
         <router-link to="/dialog-test-page">다이얼로그 테스트</router-link> |
+        <router-link to="/table-test-page">테이블 테스트</router-link> |
+        <router-link to="/table-exercise-page">vue + spring 테이블 테스트</router-link> |
         
       </nav>
       <router-view/>
