@@ -43,6 +43,13 @@ import JpaBoardModifyPage from "@/views/lecture/board/JpaBoardModifyPage"
 import JpaProductListPage from "@/views/lecture/product/JpaProductListPage"
 import  JpaProductRegisterPage from "@/views/lecture/product/JpaProductRegisterPage"
 import JpaProductReadPage from "@/views/lecture/product/JpaProductReadPage"
+import FileUploadPage from "@/views/lecture/file/FileUploadPage"
+import ImageGalleryPage from "@/views/lecture/gallery/ImageGalleryPage"
+import CarouselPage from "@/views/lecture/carouselTest/CarouselPage"
+import LifeCyclePage from "@/views/lecture/lifecycle/LifeCyclePage"
+import DialogTestPage from "@/views/lecture/dialogTest/DialogTestPage.vue"
+import TableTestPage from "@/views/lecture/tableTest/TableTestPage.vue"
+import TableExercisePage from "@/views/lecture/tableTest/TableExercisePage.vue"
 
 Vue.use(VueRouter)
 
@@ -127,6 +134,41 @@ const routes = [
       default: true
     }
   },
+  {
+    path: '/file-upload-page',
+    name: 'FileUploadPage',
+    component: FileUploadPage
+  },
+  {
+    path: '/image-gallery',
+    name: 'ImageGalleryPage',
+    component: ImageGalleryPage
+  },
+  {
+    path: '/carousel-gallery',
+    name: 'CarouselPage',
+    component: CarouselPage
+  },
+  {
+    path: '/life-cycle',
+    name: 'LifeCyclePage',
+    component: LifeCyclePage
+  },
+  {
+    path: '/dialog-test-page',
+    name: 'DialogTestPage',
+    component: DialogTestPage
+  },
+  {
+    path: '/table-test-page',
+    name: 'TableTestPage',
+    component: TableTestPage
+  },
+  {
+    path: '/table-exercise-page',
+    name: 'TableExercisePage',
+    component: TableExercisePage
+  }
   // {
   //   path: '/product-read/:productId',
   //   name: 'JpaProductReadPage',
