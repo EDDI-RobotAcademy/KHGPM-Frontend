@@ -25,6 +25,7 @@ import LifeCyclePage from "@/views/lecture/lifecycle/LifeCyclePage.vue"
 import CarouslePage from "@/views/lecture/carouselTest/CarouselPage.vue"
 import DialogTestPage from "@/views/lecture/dialogTest/DialogTestPage.vue"
 import TableTestPage from "@/views/lecture/tableTest/TableTestPage.vue"
+import TableExercisePage from "@/views/lecture/tableTest/TableExercisePage.vue"
 
 Vue.use(VueRouter)
 
@@ -128,6 +129,11 @@ const routes = [
     path: '/table-test-page',
     name: 'TableTestPage',
     component: TableTestPage
+  },
+  {
+    path: '/table-exercise-page',
+    name: 'TableExercisePage',
+    component: TableExercisePage
   }
 ]
 
