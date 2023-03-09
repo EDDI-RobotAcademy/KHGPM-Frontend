@@ -20,6 +20,7 @@ import JpaProductModifyPage from '@/views/lecture/product/JpaProductModifyPage.v
 
 import FileUploadPage from '@/views/lecture/file/FileUploadPage.vue'
 import ImageGalleryPage from '@/views/lecture/gallery/ImageGalleryPage.vue'
+import CarouselPage from '@/views/lecture/carouselTest/CarouselPage.vue'
 
 Vue.use(VueRouter)
 
@@ -123,6 +124,11 @@ const routes = [
     path: '/image-gallery',
     name: 'ImageGalleryPage',
     component: ImageGalleryPage
+  },
+  {
+    path: '/carousel-page',
+    name: 'CarouselPage',
+    component: CarouselPage
   },
 ]
 
