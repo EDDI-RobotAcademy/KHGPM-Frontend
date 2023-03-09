@@ -15,6 +15,7 @@
         <router-link :to="{ name: 'LifeCyclePage' }">라이프 사이클</router-link> |
         <router-link :to="{ name: 'CarouslePage' }">크로셀 테스트</router-link> |
         <router-link :to="{ name: 'DialogTestPage' }">다이얼로그 테스트</router-link> |
+        <router-link :to="{ name: 'TableTestPage' }">테이블 테스트</router-link> |
       </nav>
       <router-view/>
     </div>
