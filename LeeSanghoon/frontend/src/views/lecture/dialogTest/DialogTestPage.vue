@@ -17,7 +17,7 @@
     </div>
 
     <v-layout justify-center>
-      <v-dialog v-model="dialog" persistent max-width="400">
+      <v-dialog v-model="dialog" fullscreen persistent max-width="400">
         <template v-slot:activator="{on}">
           <v-btn color="primary" dark v-on="on">결제</v-btn>
         </template>
