@@ -12,6 +12,7 @@
         <router-link to="/product-list-page">상품게시판</router-link> | <br>
         <router-link to="/file-upload">파일업로드</router-link> |
         <router-link to="/image-gallery">이미지업로드</router-link> |
+        <router-link to="/carousel-page">크로셀테스트</router-link> |
       </nav>
       <router-view/>
     </div>
