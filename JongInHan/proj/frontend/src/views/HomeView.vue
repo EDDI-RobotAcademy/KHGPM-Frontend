@@ -1,7 +1,11 @@
 <template>
-  <div class="home">
-
-  </div>
+  <v-container>
+    <div id="home">
+      <nav>
+        <!-- <router-link to="" -->
+      </nav>
+    </div>
+  </v-container>
 </template>
 
 <script>

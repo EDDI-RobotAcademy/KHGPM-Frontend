@@ -8,7 +8,19 @@
 <script>
 import BoardRegisterForm from '@/components/board/BoarRegisterForm.vue';
 import { mapActions } from 'vuex';
-export default {};
+export default {
+    components: {BoardRegisterForm},
+    name: 'BoardRegisterPage',
+    methods: {
+        ...mapActions(['requestCreateBoardToSpring']),
+        async onSubmit(payload) {
+            await this.requestCreatBoardToSpring(payload);
+            // await this.$router.push({
+                // name: 'BoardListPage',
+            // });
+        },
+    },
+};
 </script>
 
 <style></style>

@@ -11,8 +11,10 @@ export default {
     const { title, content, writer } = payload;
     return axios
       .post('http://localhost:7777/board/register', { title, content, writer })
-      .then(() => {
+      .then((response) => {
+        const boardId = response.data;
         alert('게시물 등록 성공!');
+        return boardId;
       })
       .catch(() => {
         alert('문제 발생!');
@@ -66,7 +68,7 @@ export default {
       commit(REQUEST_PRODUCT_LIST_TO_SPRING, res.data);
     });
   },
-  requestBoardToSpring({ commit }, ) {
+  requestProductToSpring({ commit }, productId) {
     return axios.get(`http://localhost:7777/shop/${productId}`).then((res) => {
       commit(REQUEST_BOARD_TO_SPRING, res.data);
     });
