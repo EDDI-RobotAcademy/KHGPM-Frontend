@@ -14,13 +14,16 @@ export default {
     name: "JpaBoardRegisterPage",
     methods: {
         ...mapActions ([
+          'requestBoardToSpring',
           'requestCreateBoardToSpring'
         ]),
         async onSubmit (payload) {
-            await this.requestCreateBoardToSpring(payload)
-            await this.$router.push({
-              name: 'JpaBoardListPage'
-            })
+            const { board } = await this.requestCreateBoardToSpring(payload);
+            const boardId = board.boardId;
+            // await this.$router.push({
+            //   name: 'JpaBoardReadPage',
+            //   params: { boardId : boardId.toString() }}
+            // )
         }
     }
 }
