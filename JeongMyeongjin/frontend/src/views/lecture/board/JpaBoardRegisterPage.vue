@@ -7,10 +7,15 @@
 
 <script>
 import JpaBoardRegisterForm from '@/components/lecture/board/JpaBoardRegisterForm.vue'
-import { mapActions } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 export default {
     components: { JpaBoardRegisterForm },
     name: "JpaBoardRegisterPage",
+    computed: {
+       ...mapState([ 
+          'board'
+       ]),
+    },
     methods: {
         ...mapActions([
                 'requestCreateBoardToSpring'
@@ -18,7 +23,8 @@ export default {
         async onSubmit(payload) {
             await this.requestCreateBoardToSpring(payload)
             await this.$router.push({
-                name: 'JpaBoardListPage'
+                name: 'JpaBoardReadPage',
+                params: { boardId: this.board.boardId.toString() }
             })
         }
     }
