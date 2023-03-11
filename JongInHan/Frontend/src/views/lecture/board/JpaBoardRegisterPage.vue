@@ -17,7 +17,7 @@ export default {
     async onSubmit(payload) {
       const boardId = await this.requestCreateBoardToSpring(payload);
       const boardIdNumber = String(boardId);
-      console.log(boardId);
+      // console.log(boardId);
       await this.$router.push({
         name: 'JpaBoardReadPage',
         params: { boardId: boardIdNumber },
