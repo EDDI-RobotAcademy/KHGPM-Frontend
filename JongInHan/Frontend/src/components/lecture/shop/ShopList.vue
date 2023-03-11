@@ -10,14 +10,14 @@
       <div
         class="product"
         v-else
-        v-for="product in products"
+        v-for="(product, index) in products"
         :key="product.productId"
       >
         <h2>{{ product.name }}</h2>
         <p>{{ product.description }}</p>
         <p>{{ product.price }}₩</p>
         <button @click="addToCart(product)">장바구니에 담기</button>
-        <router-link :to="{ name: 'ShopModifyPage', params: { productId } }">
+        <router-link :to="{ name: 'ShopModifyPage', params: { productId: index } }">
           게시물 수정
         </router-link>
       </div>
