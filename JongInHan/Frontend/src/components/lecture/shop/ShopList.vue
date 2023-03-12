@@ -2,18 +2,27 @@
   <div class="shopping-mall">
     <router-link to="/shop-register-page">상품 등록 하러가기</router-link>
     <div class="products-container">
-      <div
-        v-if="!products || (Array.isArray(products) && products.length === 0)"
-      >
+      <div v-if="!products || (Array.isArray(products) && products.length === 0)">
         현재 등록된 상품이 없습니다!
       </div>
-      <div
-        class="product"
-        v-else
-        v-for="(product, index) in products"
-        :key="product.productId"
-      >
+      <div v-else v-for="(product, index) in products" :key="product.productId">
         <h2>{{ product.name }}</h2>
+        <carousel>
+          <img v-for="(imageData, index) in product.imageDataList" :key="index" :src="'data:image/jpeg;base64,' + imageData.data">
+        </carousel>
+        <v-container>
+        <v-row>
+          <v-col v-for="image in images" :key="image" cols="3">
+            <v-img :src="image" aspect-ratio="1" class="grey lighten-2">
+              <template v-slot:placeholder>
+                <v-row class="fill-height ma-0" align="center" justify="center">
+                  <v-progress-circular indeterminate color="grey lighten-5"/>
+                </v-row>
+              </template>
+            </v-img>
+          </v-col>
+        </v-row>
+    </v-container>
         <p>{{ product.description }}</p>
         <p>{{ product.price }}₩</p>
         <button @click="addToCart(product)">장바구니에 담기</button>
@@ -35,9 +44,14 @@
     </div>
   </div>
 </template>
+
 <script>
+import Carousel from 'vue-carousel';
 export default {
   name: 'ShopList',
+  components: {
+    Carousel,
+  },
   props: {
     products: {
       type: Array,
@@ -46,6 +60,11 @@ export default {
   data() {
     return {
       cart: [],
+      images: [
+      require('@/assets/uploadImgs/link.jpg'),
+                  require('@/assets/uploadImgs/mario_game.jpg'),
+                  require('@/assets/uploadImgs/mario.png'),
+      ]
     };
   },
   computed: {
@@ -69,6 +88,7 @@ export default {
   },
 };
 </script>
+
 <style>
 .shopping-mall {
   display: flex;

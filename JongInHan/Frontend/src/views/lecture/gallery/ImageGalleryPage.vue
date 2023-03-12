@@ -25,7 +25,6 @@
                   require('@/assets/uploadImgs/mario_game.jpg'),
                   require('@/assets/uploadImgs/mario.png'),
                   require('@/assets/uploadImgs/link.jpg'),
-                  // require('@/assets/uploadImgs/dice1.jpg'),
                   require('@/assets/uploadImgs/mario_game.jpg'),
                   require('@/assets/uploadImgs/mario.png'),
                   require('@/assets/uploadImgs/link.jpg'),
