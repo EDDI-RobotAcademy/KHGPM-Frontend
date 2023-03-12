@@ -12,9 +12,10 @@ export default {
         return axios.post('http://localhost:7777/board/register',
             { title, content, writer })
             .then((res) => {
-                alert('게시물 등록 성공!' + res)
-                console.log(res.toString());
-                return { board: res.data };
+                alert('게시물 등록 성공!' + res.data)
+                console.log("되려나")
+                console.log(res.data);
+                return { boardId: res.data };
             })
             .catch(() => {
                 alert('문제 발생!')

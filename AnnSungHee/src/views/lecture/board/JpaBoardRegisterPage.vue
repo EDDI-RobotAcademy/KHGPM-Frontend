@@ -18,12 +18,12 @@ export default {
           'requestCreateBoardToSpring'
         ]),
         async onSubmit (payload) {
-            const { board } = await this.requestCreateBoardToSpring(payload);
-            const boardId = board.boardId;
-            // await this.$router.push({
-            //   name: 'JpaBoardReadPage',
-            //   params: { boardId : boardId.toString() }}
-            // )
+            const boardId  = await this.requestCreateBoardToSpring(payload);
+            console.log (boardId.boardId)
+            await this.$router.push({
+              name: 'JpaBoardReadPage',
+              params: { boardId : boardId.boardId }}
+            )
         }
     }
 }
