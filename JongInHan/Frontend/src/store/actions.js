@@ -53,9 +53,20 @@ export default {
       });
   },
   requestProduct({}, payload) {
-    const { name, description, price } = payload;
+    const { name, description, price, files } = payload;
+    const formData = new FormData();
+    formData.append('name', name);
+    formData.append('description', description);
+    formData.append('price', price);
+    for (let i = 0; i < files.length; i++) {
+      formData.append('files', files[i]);
+    }
     return axios
-      .post('http://localhost:7777/shop/register', { name, description, price })
+      .post('http://localhost:7777/shop/register', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      })
       .then(() => {
         alert('상품 등록 성공!');
       })
