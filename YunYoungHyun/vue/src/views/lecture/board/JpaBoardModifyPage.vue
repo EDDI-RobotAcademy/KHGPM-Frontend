@@ -1,11 +1,9 @@
 <template>
-  <v-container>
-    <div align="center">
+    <div class="container" align="center">
         <h2>게시물 수정</h2>
         <jpa-board-modify-form v-if="board" :board="board" @submit="onSubmit"/>
         <p v-else>로딩중...............</p>
     </div>
-  </v-container>
 </template>
 
 <script>

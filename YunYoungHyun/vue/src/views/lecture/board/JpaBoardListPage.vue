@@ -1,11 +1,13 @@
 <template>
-  <v-container>
-    <h2>Vue + Spring + JPA Boards</h2>
-    <router-link :to="{ name: 'JpaBoardRegisterPage' }">
-      게시물 작성
-    </router-link>
+  <div class="container" align="center">
+    <h2>게시물 목록</h2>
+    <div class="d-flex justify-content-end my-5">
+      <router-link :to="{ name: 'JpaBoardRegisterPage' }">
+        <button class="btn btn-outline-primary">게시물 작성</button>
+      </router-link>
+    </div>
     <jpa-board-list :boards="boards"/>
-  </v-container>
+  </div>
 </template>
 
 <script>
