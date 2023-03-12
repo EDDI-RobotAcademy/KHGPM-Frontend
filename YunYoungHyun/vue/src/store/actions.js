@@ -1,4 +1,5 @@
 import {
+    REQUEST_CREATE_BOARD_TO_SPRING,
     REQUEST_BOARD_LIST_TO_SPRING,
     REQUEST_BOARD_TO_SPRING,
     REQUEST_PRODUCT_LIST_TO_SPRING,
@@ -9,12 +10,12 @@ import {
 import axios from 'axios'
 
 export default {
-    requestCreateBoardToSpring({}, payload) {
+    requestCreateBoardToSpring({ commit }, payload) {
         const { title, content, writer } = payload
-        return axios.post('http://localhost:7777/board/register',
-            { title, content, writer })
-            .then(() => {
-                alert('게시물 등록 성공!')
+        return axios.post('http://localhost:7777/board/register', { title, content, writer })
+            .then((res) => {
+                commit(REQUEST_CREATE_BOARD_TO_SPRING, res.data);
+                alert('게시물 등록 성공!\n번호: '+ res.data.boardId +", 제목: "+ res.data.title +"\n작성자: "+ res.data.writer +", 내용: "+ res.data.content);
             })
             .catch(() => {
                 alert('문제 발생!')
@@ -30,6 +31,9 @@ export default {
         return axios.get(`http://localhost:7777/board/${boardId}`)
             .then((res) => {
                 commit(REQUEST_BOARD_TO_SPRING, res.data)
+            })
+            .cathch(() => {
+                alert("requestBoardToSpring 문제 발생!")
             })
     },
     requestDeleteBoardToSpring({}, boardId) {
