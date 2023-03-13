@@ -13,8 +13,9 @@ export default {
         const { title, content, writer } = payload
         return axios.post('http://localhost:7777/board/register',
             { title, content, writer })
-            .then(() => {
-                alert('게시물 등록 성공!')
+            .then((res) => {
+                alert('게시물 등록 성공: ' + JSON.stringify(res.data))
+                return res
             })
             .catch(() => {
                 alert('문제 발생!')
