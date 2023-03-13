@@ -7,11 +7,16 @@
 
 <script>
 import JpaBoardRegisterForm from '@/components/lecture/board/JpaBoardRegisterForm.vue';
-import { mapActions } from 'vuex';
+import { mapActions, mapState } from 'vuex';
 
 export default {
     components: { JpaBoardRegisterForm },
     name: "JpaBoardRegisterPage",
+    computed: {
+        ...mapState([
+            'board'
+        ])
+    },
     methods: {
         ...mapActions ([
             'requestCreateBoardToSpring'
@@ -19,7 +24,8 @@ export default {
         async onSubmit (payload) {     //await 로 쓰레드가 끝내길 기다리게 함
             await this.requestCreateBoardToSpring(payload)
             await this.$router.push({  //router 제어하여 리다이렉션
-                name: 'JpaBoardListPage'
+                name: 'JpaBoardReadPage',
+                params: { boardId: this.board.boardId.toString() }
             })
         }
     }
