@@ -16,6 +16,13 @@ import JpaBoardModifyPage from '@/views/lecture/board/JpaBoardModifyPage.vue';
 import ShopListPage from '@/views/lecture/shop/ShopListPage.vue';
 import ShopRegisterPage from '@/views/lecture/shop/ShopRegisterPage.vue';
 import ShopModifyPage from '@/views/lecture/shop/ShopModifyPage.vue';
+import FileUploadPage from '@/views/lecture/file/FileUploadPage.vue';
+import ImageGalleryPage from '@/views/lecture/gallery/ImageGalleryPage.vue';
+import LifeCyclePage from '@/views/lecture/lifecycle/LifeCyclePage.vue';
+import CarouselPage from '@/views/lecture/carouselTest/CarouselPage.vue';
+import DialogTestPage from "@/views/lecture/dialogTest/DialogTestPage.vue"
+import TableTestPage from "@/views/lecture/tableTest/TableTestPage.vue"
+import TableExercisePage from "@/views/lecture/tableTest/TableExercisePage.vue"
 
 Vue.use(VueRouter);
 
@@ -91,15 +98,50 @@ const routes = [
     component: ShopRegisterPage,
   },
   {
+    path: '/file-upload',
+    name: 'FileUploadPage',
+    component: FileUploadPage,
+  },
+  {
     path: '/shop-modify-page',
     name: 'ShopModifyPage',
     component: {
       default: ShopModifyPage,
+    },
+    props: {
+      default: true,
+    },
   },
-  props: {
-    default: true,
+  {
+    path: '/image-gallery',
+    name: 'ImageGalleryPage',
+    component: ImageGalleryPage,
   },
-}
+  {
+    path: '/life-cycle',
+    name: 'LifeCyclePage',
+    component: LifeCyclePage,
+  },
+  {
+    path: '/carousel-page',
+    name: 'CarouselPage',
+    component: CarouselPage,
+  },
+  {
+    path: '/dialog-test-page',
+    name: 'DialogTestPage',
+    component: DialogTestPage
+  },
+  {
+    path: '/table-test-page',
+    name: 'TableTestPage',
+    component: TableTestPage
+  },
+  {
+    path: '/table-exercise-page',
+    name: 'TableExercisePage',
+    component: TableExercisePage
+  }
 ];
 
 const router = new VueRouter({

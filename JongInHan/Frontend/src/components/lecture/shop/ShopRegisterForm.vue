@@ -8,6 +8,16 @@
       <textarea id="description" v-model="description" required></textarea>
       <label for="price">가격</label>
       <input type="number" id="price" v-model="price" required />
+      <label>상품 사진 업로드</label>
+      <div> 
+        <input
+          type="file"
+          id="files"
+          ref="files"
+          multiple
+          @change="handleFileUpload"
+        />
+      </div>
       <button type="submit">상품등록하기</button>
       <router-link to="{ name: 'ShopListPage' }"> 취소 </router-link>
     </form>
@@ -21,12 +31,16 @@ export default {
       name: '상품명',
       description: 'blah blah blah',
       price: 12345,
+      files: ''
     };
   },
   methods: {
     registerProduct() {
-      const { name, description, price } = this;
-      this.$emit('submit', { name, description, price });
+      const { name, description, price, files } = this;
+      this.$emit('submit', { name, description, price, files });
+    },
+    handleFileUpload() {
+      this.files = this.$refs.files.files
     },
   },
 };
