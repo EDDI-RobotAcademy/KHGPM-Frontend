@@ -42,6 +42,9 @@ export default {
     mounted () {
         this.requestBoardListToSpring()
     },
+    //     beforeUpdate () {
+    //     console.log('selected: ' + JSON.stringify(this.selectedItems))
+    // },
     methods: {
         ...mapActions([
             'requestBoardListToSpring'
