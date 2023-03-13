@@ -1,7 +1,6 @@
 <template>
     <div>
-      <h3>게시물 목록</h3>
-      <table>
+      <table class="board-list-table">
         <tr>
           <th align="center" width="100">No</th>
           <th align="center" width="640">제목</th>
@@ -33,19 +32,25 @@
     </div>
   </template>
   
-  <script>
-  
-  export default {
-      name: "JpaBoardList",
-      props: {
-          boards: {
-              type: Array
-          }
-      }
+<script>
+
+export default {
+    name: "JpaBoardList",
+    props: {
+        boards: {
+            type: Array
+        }
+    }
+}
+
+</script>
+
+<style>
+  .board-list-table th {
+    text-align: center;
   }
-  
-  </script>
-  
-  <style>
-  
-  </style>
+  .board-list-table td {
+    border: 1px solid;
+    text-align: center;
+  }
+</style>

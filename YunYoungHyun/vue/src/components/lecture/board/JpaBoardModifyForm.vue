@@ -1,7 +1,7 @@
 <template>
   <div>
     <form @submit.prevent="onSubmit">
-        <table>
+        <table class="board-modify-table">
             <tr>
                 <td>게시물 번호</td>
                 <td><input type="text" :value="board.boardId" readonly/></td>
@@ -24,10 +24,10 @@
             </tr>
         </table>
 
-        <div>
-            <button type="submit">수정</button>
+        <div class="mt-2">
+            <button type="submit" class="btn btn-outline-primary me-2">수정</button>
             <router-link :to="{ name: 'JpaBoardReadPage', params: { boardId: board.boardId.toString() }}">
-                취소
+                <button class="btn btn-outline-danger">취소</button>
             </router-link>
         </div>
     </form>
@@ -69,5 +69,8 @@ export default {
 </script>
 
 <style>
-
+    .board-modify-table td {
+        border: 1px solid;
+        text-align: center;
+    }
 </style>

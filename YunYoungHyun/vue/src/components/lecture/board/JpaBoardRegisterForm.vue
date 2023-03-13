@@ -1,6 +1,6 @@
 <template>
   <form @submit.prevent="onSubmit">
-    <table>
+    <table class="board-register-table">
         <tr>
             <td>제목</td>
             <td><input type="text" v-model="title"/></td>
@@ -15,10 +15,10 @@
         </tr>
     </table>
 
-    <div>
-        <button type="submit">등록</button>
+    <div class="mt-2">
+        <button type="submit" class="btn btn-outline-primary me-2">등록</button>
         <router-link :to="{ name: 'JpaBoardListPage' }">
-            취소
+            <button class="btn btn-outline-danger">취소</button>
         </router-link>
     </div>
 
@@ -45,7 +45,7 @@ export default {
 </script>
 
 <style>
-    td {
+    .board-register-table td {
         border: 1px solid;
         text-align: center;
     }

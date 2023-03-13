@@ -1,18 +1,20 @@
 <template>
-  <v-container>
+  <div class="container" align="center">
     <div alian="center">
-      <h2>Vue + Spring 게시판 읽기</h2>
+      <h2 class="mb-5">Vue + Spring 게시판 읽기</h2>
       <jpa-board-read v-if="board" :board="board"/>
       <p v-else>로딩중...............</p>
-      <router-link :to="{ name: 'JpaBoardModifyPage', params: { boardId } }">
-        게시물 수정
-      </router-link>
-      <button @click="onDelete">삭제</button>
-      <router-link :to="{ name: 'JpaBoardListPage' }">
-        돌아가기
-      </router-link>
+      <div class="mt-2">
+        <router-link :to="{ name: 'JpaBoardModifyPage', params: { boardId } }">
+          <button class="btn btn-outline-primary me-2">게시물 수정</button>
+        </router-link>
+        <button @click="onDelete" class="btn btn-outline-danger me-2">삭제</button>
+        <router-link :to="{ name: 'JpaBoardListPage' }">
+          <button class="btn btn-outline-danger">돌아가기</button>
+        </router-link>
+      </div>
     </div>
-  </v-container>
+  </div>
 </template>
 
 <script>
