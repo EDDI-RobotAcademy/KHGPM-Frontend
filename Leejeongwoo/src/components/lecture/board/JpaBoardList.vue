@@ -52,10 +52,10 @@ export default {
 
 </script>
 
-<!-- <style>
+<style scoped>
 .div{
   display: flex;
   justify-content: center;
 }
 
-</style> -->
+</style>
