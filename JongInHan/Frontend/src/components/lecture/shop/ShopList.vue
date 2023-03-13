@@ -13,7 +13,10 @@
           <img
             v-for="(imageData, index) in product.imageDataList"
             :key="index"
-            :src="getImageUrl(imageData.data)"
+            :src="
+              'data:image/jpeg;base64,' +
+              btoa(String.fromCharCode(...new Uint8Array(imageData.data)))
+            "
           />
         </carousel>
 

@@ -9,7 +9,7 @@
       <label for="price">가격</label>
       <input type="number" id="price" v-model="price" required />
       <label>상품 사진 업로드</label>
-      <div>
+      <div> 
         <input
           type="file"
           id="files"
@@ -31,7 +31,7 @@ export default {
       name: '상품명',
       description: 'blah blah blah',
       price: 12345,
-      files: []
+      files: ''
     };
   },
   methods: {
@@ -40,10 +40,7 @@ export default {
       this.$emit('submit', { name, description, price, files });
     },
     handleFileUpload() {
-      const files = this.$refs.files.files;
-      for (let i = 0; i < files.length; i++) {
-        this.files.push(files[i]);
-      }
+      this.files = this.$refs.files.files
     },
   },
 };
