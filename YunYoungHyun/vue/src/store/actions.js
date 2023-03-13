@@ -14,8 +14,10 @@ export default {
         const { title, content, writer } = payload
         return axios.post('http://localhost:7777/board/register', { title, content, writer })
             .then((res) => {
-                commit(REQUEST_CREATE_BOARD_TO_SPRING, res.data);
                 alert('게시물 등록 성공!\n번호: '+ res.data.boardId +", 제목: "+ res.data.title +"\n작성자: "+ res.data.writer +", 내용: "+ res.data.content);
+                // 코드 구조상 commit 보단 return 이 낫다?
+                // commit(REQUEST_CREATE_BOARD_TO_SPRING, res.data)
+                return res
             })
             .catch(() => {
                 alert('문제 발생!')

@@ -20,8 +20,11 @@ export default {
             'requestCreateBoardToSpring'        // Board 만드는 것을 Spring 에게 요청한다~
         ]),
         async onSubmit(payload) {
-            await this.requestCreateBoardToSpring(payload)
-            await this.$router.push({ name: 'JpaBoardReadPage', params: { boardId: this.board.boardId.toString() } })
+            const board = await this.requestCreateBoardToSpring(payload)
+            // console.log("board: "+ board)
+            await this.$router.push({ name: 'JpaBoardReadPage', params: { boardId: board.data.boardId.toString() } })
+            // await this.requestCreateBoardToSpring(payload)
+            // await this.$router.push({ name: 'JpaBoardReadPage', params: { boardId: this.board.boardId.toString() } })
         }
     }
 }
