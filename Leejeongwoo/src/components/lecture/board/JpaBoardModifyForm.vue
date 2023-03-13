@@ -37,12 +37,12 @@
                     </table>
                 </div>
                 <div>
-                    <button type="submit">수정 완료</button>
+                    <v-btn type="submit" color="blue">수정 완료</v-btn>
                     <router-link :to="{
                         name: 'JpaBoardReadPage',
                         params: { boardId: board.boardId.toString() }
                     }">
-                        취소
+                        <v-btn color="red">취소</v-btn>
                     </router-link>
                 </div>
             </form>
@@ -51,7 +51,6 @@
 </template>
 
 <script>
-
 export default {
     name: "JpaBoardModifyForm",
     props: {
@@ -84,10 +83,25 @@ export default {
 
 </script>
 
-<!-- <style>
-.div{
-  display: flex;
-  justify-content: center;
+
+<style scoped>
+a {
+    text-decoration: none;
 }
 
-</style> -->
+.div {
+    display: flex;
+    justify-content: center;
+}
+table {
+    border-collapse: collapse;
+    border: 2px solid black;
+    margin-bottom: 5px;
+  }
+  
+  td {
+    padding: 5px;
+    border: 2px solid black;
+  }
+
+</style>

@@ -51,10 +51,23 @@ export default {
 }
 </script>
 
-<!-- <style>
-.div{
+<style scoped>
+
+a {
+  text-decoration: none;
+}
+.div {
   display: flex;
   justify-content: center;
 }
+table {
+  border-collapse: collapse;
+  border: 2px solid black;
+  margin-bottom: 5px;
+}
 
-</style> -->
+td {
+  padding: 5px;
+  border: 2px solid black;
+}
+</style>

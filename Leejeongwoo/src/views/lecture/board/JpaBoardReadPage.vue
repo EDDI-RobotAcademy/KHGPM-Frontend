@@ -7,11 +7,11 @@
       <!-- <jpa-board-read v-if="board" :board="board"/> -->
       <!-- <p v-else>로딩중 .......... </p> -->
       <router-link :to="{ name: 'JpaBoardModifyPage', params: { boardId } }">
-        수정
+        <v-btn color="blue">수정</v-btn>
       </router-link>
-      <button @click="onDelete">삭제</button>
+      <v-btn color="red" @click="onDelete">삭제</v-btn>
       <router-link :to="{ name: 'JpaBoardListPage' }">
-        돌아가기
+        <v-btn color="blue">돌아가기</v-btn>
       </router-link>
     </div>
   </v-container>
@@ -35,7 +35,9 @@ export default {
     },
     // computed 속성은 템플릿에서 변수처럼 사용되며, 값이 변경될 때마다 자동으로 다시 계산됩니다. 만약 board 상태 값이 변경되면, 해당 컴포넌트의 computed 속성에서도 변경된 값을 사용하여 자동으로 계산됩니다.
     computed: {
-        ...mapState(['board'])
+        ...mapState([
+          'board'
+        ])
     },
     methods: {
         ...mapActions([
@@ -60,6 +62,9 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
+a {
+  text-decoration: none;
+}
 
 </style>
