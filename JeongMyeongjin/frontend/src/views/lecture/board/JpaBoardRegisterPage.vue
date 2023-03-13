@@ -11,20 +11,15 @@ import { mapActions, mapState } from 'vuex'
 export default {
     components: { JpaBoardRegisterForm },
     name: "JpaBoardRegisterPage",
-    computed: {
-       ...mapState([ 
-          'board'
-       ]),
-    },
     methods: {
         ...mapActions([
                 'requestCreateBoardToSpring'
             ]),
         async onSubmit(payload) {
-            await this.requestCreateBoardToSpring(payload)
+            const board = await this.requestCreateBoardToSpring(payload)
             await this.$router.push({
                 name: 'JpaBoardReadPage',
-                params: { boardId: this.board.boardId.toString() }
+                params: { boardId: board.data.boardId.toString() }
             })
         }
     }
