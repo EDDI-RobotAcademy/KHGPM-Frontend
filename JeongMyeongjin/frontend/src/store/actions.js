@@ -55,11 +55,10 @@ export default {
             })
     },
 
-    requestCreateProductToSpring ({}, payload) {
+    requestCreateProductToSpring ({}, formData) {
 
-        const { productName, content, writer, price } = payload
         return axios.post('http://localhost:7777/product/register',
-            { productName, content, writer, price })
+            formData)
             .then(() => {
                 alert('상품 등록 성공!')
             })

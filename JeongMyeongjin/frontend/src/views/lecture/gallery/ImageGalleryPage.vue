@@ -22,7 +22,7 @@
       name: "ImageGalleryPage",
       data () {
           return {
-            imageName: "link.jpg",
+            imageName: "img.jpg",
             images: [
                 require('@/assets/uploadImgs/20171225_234934.jpg'),
                 require('@/assets/uploadImgs/IMG_4374.jpg'),
