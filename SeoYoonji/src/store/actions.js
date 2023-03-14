@@ -62,9 +62,8 @@ export default {  //commit 할게 없으면 공객체 전달 ({})
     },
     requestCreateProductToSpring ({}, payload) {
 
-        const { title, price, detail } = payload
-        return axios.post('http://localhost:7777/product/register',
-            { title, price, detail })
+       // const { title, price, detail } = payload
+        return axios.post('http://localhost:7777/product/register', payload)
             .then(() => {
                 alert('상품 등록 성공!')
             })

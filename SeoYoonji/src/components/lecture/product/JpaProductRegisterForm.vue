@@ -28,7 +28,7 @@
       </table>
   
       <div>
-          <button @click="onSubmit">등록</button>
+          <button type="submit">등록</button>
           <router-link :to="{ name: 'JpaProductListPage' }">
               취소
           </router-link>
@@ -37,15 +37,15 @@
   </template>
   
   <script>
-  import axios from 'axios'
 
   export default {
       name: "JpaProductRegisterForm",
       data () {
           return {
               title: '제품명을 입력하세요.',
-              price: '가격을 입력하세요.',
+              price: 0,
               detail: '상세 정보를 입력하세요.',
+              productImgs: '',
           }
       },
       methods: {
@@ -54,19 +54,18 @@
           },
           onSubmit () {
               let formData = new FormData()
-              let fileinfo = { title: this.title, price: this.price, detail: this.detail }
               for(let idx = 0; idx < this.productImgs.length; idx++) {
                   formData.append('productImgList', this.productImgs[idx])
                 }
-              formData.append("info", new Blob([JSON.stringify(fileinfo)], { type: "application/json" }))
-              axios.post('http://localhost:7777/product/register', formData)
-                .then (res => {
-                    alert('처리 결과: ' + res.data)
-                    this.$emit('submit', formData)
-                })
-                .catch(() => {
-                    alert('문제 발생!')
-                })
+              const { title, price, detail } = this
+              let productInfo = {
+                title: title,
+                price: price,
+                detail: detail,
+              }
+              console.log('productInfo: ' + JSON.stringify(productInfo))
+              formData.append("productInfo", new Blob([JSON.stringify(productInfo)], { type: "application/json" }))
+              this.$emit('submit', formData)  
             }
       }
   }
