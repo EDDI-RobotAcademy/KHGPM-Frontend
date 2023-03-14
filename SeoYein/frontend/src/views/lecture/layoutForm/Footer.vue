@@ -14,7 +14,7 @@
       <v-divider></v-divider>
       <v-card-text class="blue--text">
         {{ new Date().getFullYear() }} -
-        <strong>EDDI</strong>
+        <strong>RIDI</strong>
       </v-card-text>
     </v-card>
   </v-footer>
