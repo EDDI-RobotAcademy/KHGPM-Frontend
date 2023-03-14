@@ -17,10 +17,11 @@ import JpaBoardModifyPage from "@/views/lecture/board/JpaBoardModifyPage.vue"
 
 import JpaProductListPage from "@/views/lecture/product/JpaProductListPage.vue"
 import JpaProductRegisterPage from "@/views/lecture/product/JpaProductRegisterPage.vue"
+import JpaProductReadPage from "@/views/lecture/product/JpaProductReadPage.vue"
+import JpaProductModifyPage from "@/views/lecture/product/JpaProductModifyPage.vue"
 
 import FileUploadPage from "@/views/lecture/file/FileUploadPage.vue"
 import ImageGalleryPage from "@/views/lecture/gallery/ImageGalleryPage.vue"
-
 import LifeCyclePage from "@/views/lecture/lifecycle/LifeCyclePage.vue"
 import CarouslePage from "@/views/lecture/carouselTest/CarouselPage.vue"
 import DialogTestPage from "@/views/lecture/dialogTest/DialogTestPage.vue"
@@ -101,6 +102,26 @@ const routes = [
     component: JpaProductRegisterPage
   },
   {
+    path: '/product-read/:productId',
+    name: 'JpaProductReadPage',
+    components: {
+      default: JpaProductReadPage
+    },
+    props: {
+      default: true
+    }
+  },
+  {
+    path: '/product-modify/:productId',
+    name: 'JpaProductModifyPage',
+    components: {
+      default: JpaProductModifyPage
+    },
+    props: {
+      default: true
+    }
+  },
+  {
     path: '/file-upload',
     name: 'FileUploadPage',
     component: FileUploadPage
@@ -135,6 +156,8 @@ const routes = [
     name: 'TableExercisePage',
     component: TableExercisePage
   }
+
+  
 ]
 
 const router = new VueRouter({
