@@ -30,21 +30,23 @@ export default {
         }
     },
     computed: {
-        ...mapState(['product'])
+        ...mapState(['product', 'productImages'])
     },
     methods: {
         ...mapActions([
             'requestProductToSpring',
-            'requestDeleteProductToSpring'
+            'requestDeleteProductToSpring',
+            'requestProductImageToSpring',
         ]),
         async onDelete () {
             await this.requestDeleteProductToSpring(this.productId)
             await this.$router.push({ name: 'JpaProductListPage' })
         }
     },
-    created () {
+    async created () {
         console.log('productId: ' + this.productId)
-        this.requestProductToSpring(this.productId)
+        await this.requestProductToSpring(this.productId)
+        await this.requestProductImageToSpring(this.productId)
     }
 }
 

@@ -3,6 +3,7 @@ import {
     REQUEST_BOARD_TO_SPRING,
     REQUEST_PRODUCT_LIST_TO_SPRING,
     REQUEST_PRODUCT_TO_SPRING,
+    REQUEST_PRODUCT_IMAGE_LIST_TO_SPRING,
 } from './mutation-types'
 
 import axios from 'axios'
@@ -57,9 +58,11 @@ export default {
 
     requestCreateProductToSpring ({}, payload) {
 
+        console.log('payload: ' + payload)
         const { productName, content, writer, price } = payload
         return axios.post('http://localhost:7777/product/register',
-            { productName, content, writer, price })
+            payload)
+            //{ productName, content, writer, price })
             .then(() => {
                 alert('상품 등록 성공!')
             })
@@ -100,4 +103,11 @@ export default {
                 alert("문제 발생!")
             })
     },
+
+    requestProductImageToSpring ({ commit }, productId) {
+        return axios.get(`http://localhost:7777/product/imageList/${productId}`)
+            .then((res) => {
+                commit(REQUEST_PRODUCT_IMAGE_LIST_TO_SPRING, res.data)
+            })
+    }
 }

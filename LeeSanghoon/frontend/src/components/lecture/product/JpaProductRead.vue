@@ -42,6 +42,7 @@
 </template>
 
 <script>
+
 export default {
     name: "JpaProductRead",
     props: {
@@ -49,8 +50,9 @@ export default {
             type: Object,
             required: true,
         }
-    }
+    },
 }
+
 </script>
 
 <style>
