@@ -42,7 +42,7 @@
 <script>
 
 export default {
-    name: "JpaProductList",
+    name: "JpaProductList10",
     props: {
         products: {
             type: Array
