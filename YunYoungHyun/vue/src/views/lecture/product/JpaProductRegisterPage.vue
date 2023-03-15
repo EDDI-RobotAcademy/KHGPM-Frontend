@@ -17,7 +17,8 @@ export default {
             'requestCreateProductToSpring'        // Product 만드는 것을 Spring 에게 요청한다~
         ]),
         async onSubmit(payload) {
-            await this.requestCreateProductToSpring(payload)
+            console.log("Page: "+ payload.name)
+            const product = await this.requestCreateProductToSpring(payload)
             await this.$router.push({           // 강제로 ProductList 로 돌아가라!
                 name: 'JpaProductListPage'
             })

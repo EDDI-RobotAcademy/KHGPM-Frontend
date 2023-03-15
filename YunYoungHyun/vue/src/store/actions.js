@@ -57,11 +57,12 @@ export default {
                 alert('문제 발생!')
             })
     },
+
     requestCreateProductToSpring({}, payload) {
-        const { name, price, writer, content } = payload
-        return axios.post('http://localhost:7777/product/register', { name, price, writer, content })
-            .then(() => {
+        return axios.post('http://localhost:7777/product/register', payload)
+            .then((res) => {
                 alert('상품 등록 성공!')
+                return res
             })
             .catch(() => {
                 alert('문제 발생!')
