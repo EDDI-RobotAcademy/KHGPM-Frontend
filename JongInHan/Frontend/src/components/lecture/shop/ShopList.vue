@@ -9,34 +9,13 @@
       </div>
       <div v-else v-for="(product, index) in products" :key="product.productId">
         <h2>{{ product.name }}</h2>
+        <pre>{{ product.imageDataList }}</pre>
         <carousel>
-          <img
-            v-for="(imageData, index) in product.imageDataList"
-            :key="index"
-            :src="
-              'data:image/jpeg;base64,' +
-              btoa(String.fromCharCode(...new Uint8Array(imageData.data)))
-            "
-          />
-        </carousel>
-
-        <v-container>
-          <v-row>
-            <v-col v-for="image in images" :key="image" cols="3">
-              <v-img :src="image" aspect-ratio="1" class="grey lighten-2">
-                <template v-slot:placeholder>
-                  <v-row
-                    class="fill-height ma-0"
-                    align="center"
-                    justify="center"
-                  >
-                    <v-progress-circular indeterminate color="grey lighten-5" />
-                  </v-row>
-                </template>
-              </v-img>
-            </v-col>
-          </v-row>
-        </v-container>
+        <slide v-for="(imageData, index) in product.imageDataList" :key="index">
+        <img :src="getImagePath(imageData)" aspect-ratio="1" class="grey
+        lighten-2" />
+      </slide>
+      </carousel>
         <p>{{ product.description }}</p>
         <p>{{ product.price }}₩</p>
         <button @click="addToCart(product)">장바구니에 담기</button>
@@ -62,11 +41,13 @@
 </template>
 
 <script>
-import Carousel from 'vue-carousel';
+import { Carousel, Slide } from 'vue-carousel';
+
 export default {
   name: 'ShopList',
   components: {
     Carousel,
+    Slide,
   },
   props: {
     products: {
@@ -76,12 +57,10 @@ export default {
   data() {
     return {
       cart: [],
-      images: [
-        require('@/assets/uploadImgs/link.jpg'),
-        require('@/assets/uploadImgs/mario_game.jpg'),
-        require('@/assets/uploadImgs/mario.png'),
-      ],
     };
+  },
+  created() {
+    console.log('products:', this.products);
   },
   computed: {
     total() {
@@ -101,9 +80,8 @@ export default {
         this.cart[index].quantity += 1;
       }
     },
-    getImageUrl(byteArray) {
-      const blob = new Blob([byteArray]);
-      return URL.createObjectURL(blob);
+    getImagePath(imageData) {
+      return require(`@/assets/${imageData}`);
     },
   },
 };

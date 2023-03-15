@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <h2 class="title">종인몰</h2>
+    <h2 class="title">Victoria</h2>
     <shop-list :products="products" />
   </v-container>
 </template>
@@ -12,8 +12,15 @@ export default {
   components: { ShopList },
   name: 'ShopListPage',
   computed: {
-    ...mapState(['products']),
-  },
+  ...mapState({
+    products: state => state.products.map(product => ({
+      ...product,
+      imageDataList: product.imageDataList
+    }))
+  })
+},
+
+
   mounted() {
     this.requestProductList();
   },

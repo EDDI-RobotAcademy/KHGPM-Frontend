@@ -61,6 +61,13 @@ export default {
     for (let idx = 0; idx < files.length; idx++) {
       formData.append('fileList', files[idx]);
     }
+    for (let key of formData.keys()) {
+      console.log(key);
+    }
+    for (let value of formData.values()) {
+      console.log(value);
+    }
+
     return axios
       .post('http://localhost:7777/shop/register', formData, {
         headers: {
@@ -76,6 +83,7 @@ export default {
   },
   requestProductList({ commit }) {
     return axios.get('http://localhost:7777/shop/list').then((res) => {
+      console.log('Fetched data from server:', res.data);
       commit(REQUEST_PRODUCT_LIST_TO_SPRING, res.data);
     });
   },

@@ -3,4 +3,5 @@ export default {
   board: {},
   products: [],
   product: {},
+  
 };
