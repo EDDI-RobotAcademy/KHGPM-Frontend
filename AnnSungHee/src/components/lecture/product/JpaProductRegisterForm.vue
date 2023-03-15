@@ -26,9 +26,10 @@
         </td>
       </tr>
       <tr>
-        <td>이미지</td>
+        <td>사진 추가</td>
         <td>
-          <input type="file" id="files" ref="files" multiple @change="handleFileUpload"/>
+          <input type="file" id="files" ref="files"
+            multiple @change="handleFileUpload"/>
         </td>
       </tr>
     </table>
@@ -52,30 +53,35 @@ export default {
             writer: '누구세요 ?',
             content: '내용을 입력하세요.',
             price: 0,
-            file: null
+            files: '',
         }
     },
     methods: {
         onSubmit () {
-            // const { productName, writer, content, price } = this
-            // this.$emit('submit', { productName, writer, content, price })
-            const formData = new FormData()
+            let formData = new FormData()
             for (let idx = 0; idx < this.files.length; idx++) {
-                  formData.append('fileList', this.files[idx])
-              }
+                formData.append('imageFileList', this.files[idx])
+            }
+            const { productName, writer, content, price } = this
+            let productInfo = {
+                productName: productName,
+                writer: writer,
+                content: content,
+                price: price,
+            }
+            console.log('productInfo: ' + JSON.stringify(productInfo))
             formData.append(
                 "productInfo",
-                new Blob([JSON.stringify(fileinfo)], { type: "application/json" })
+                new Blob([JSON.stringify(productInfo)], { type: "application/json" })
             )
-            formData.append('productName', this.productName)
-            formData.append('writer', this.writer)
-            formData.append('content', this.content)
-            formData.append('price', this.price)
+            console.log('imageFileList: ' + formData.get('imageFileList'))
+            console.log('formData(ns): ' + formData.get('productInfo'))
+            console.log('formData: ' + JSON.stringify(formData))
             this.$emit('submit', formData)
-          },
-          handleFileUpload(event) {
+        },
+        handleFileUpload () {
             this.files = this.$refs.files.files
-          }
+        },
     }
 }
 
