@@ -20,7 +20,7 @@ export default {
             console.log("Page: "+ payload.name)
             const product = await this.requestCreateProductToSpring(payload)
             await this.$router.push({           // 강제로 ProductList 로 돌아가라!
-                name: 'JpaProductListPage'
+                name: 'JpaProductReadPage', params: { productNo: product.data.productNo.toString() }
             })
         }
     }
