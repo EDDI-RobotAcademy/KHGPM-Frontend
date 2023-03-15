@@ -63,16 +63,15 @@ export default {
     //상품
     //등록
 requestCreateProductToSpring ({}, payload) {
-
-    const { productName, productKategorie, productContent, productBrand, productPrice } = payload
+    // const { productName, kategorie, content, brand, price, img } = payload
     return axios.post('http://localhost:7777/product/register',
-        { productName, productKategorie, productContent, productBrand, productPrice })
-        .then(() => {
-            alert('상품 등록 성공!')
-        })
-        .catch(() => {
-            alert('문제 발생!')
-        })
+    payload)
+    .then(() => {
+        alert('상품 등록 성공!')
+    })
+    .catch(() => {
+        alert('문제 발생!')
+    })
 },
 requestProductListToSpring ({ commit }) {
     return axios.get('http://localhost:7777/product/list')
@@ -96,10 +95,10 @@ requestDeleteProductToSpring ({}, productId) {
         })
 },
 requestProductModifyToSpring ({}, payload) {
-    const { productName, productKategorie, productContent, productBrand, productPrice } = payload
+    const { productName, kategorie, content, brand, price, img  } = payload
 
     return axios.put(`http://localhost:7777/product/${productId}`,
-        { productName, productKategorie, productContent, productBrand, productPrice })
+        { productName, kategorie, content, brand, price, img  })
         .then(() => {
             alert("수정 성공")
         })
