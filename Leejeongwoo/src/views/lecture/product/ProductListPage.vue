@@ -1,11 +1,13 @@
 <template>
   <v-container>
+    <div align="center">
       <h2>Product</h2>
-    <p><mark>판매 상품 목록이 보여지는 페이지 입니다.</mark></p>
-    <router-link :to="{ name: 'ProductRegisterPage' }">
-      상품 등록하러 가기
-    </router-link>
-    <product-list-form :products="products"/>
+      <p><mark>판매 상품 목록이 보여지는 페이지 입니다.</mark></p>
+      <router-link :to="{ name: 'ProductRegisterPage' }">
+        상품 등록하러 가기
+      </router-link>
+    </div>
+    <product-list-form :products="products" :img="img" />
   </v-container>
 </template>
 
@@ -32,6 +34,4 @@ export default {
 }
 </script>
 
-<style>
-
-</style>
+<style></style>

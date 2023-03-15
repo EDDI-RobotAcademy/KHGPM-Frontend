@@ -4,7 +4,9 @@
       <v-app-bar-nav-icon  @click="navigation_drawer = !navigation_drawer" />
 
       <v-toolbar-title class="text-uppercase text--darken-4">
-        <router-link :to="{ name: 'home' }" style=" text-decoration: none; color: white;">
+        <router-link :to="{ name: 'home' }" style=" text-decoration: none; color: white; text-decoration-line: underline;
+          text-decoration-style: double;
+        };">
           Vue + Spring + JPA
         </router-link>
       </v-toolbar-title>

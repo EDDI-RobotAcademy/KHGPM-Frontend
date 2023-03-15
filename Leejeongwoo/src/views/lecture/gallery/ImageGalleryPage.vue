@@ -33,7 +33,7 @@ export default {
       // imageread: false,
       // imageName: "link.jpg",
       images: [
-        require('@/assets/uploadImgs/하민1.jpg'),
+        require('@/assets/uploadImgs/하민1.jpg'), 
         require('@/assets/uploadImgs/하민2.jpg'),
         require('@/assets/uploadImgs/하민3.jpg'),
         require('@/assets/uploadImgs/하민4.jpg'),

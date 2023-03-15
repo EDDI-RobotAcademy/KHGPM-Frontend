@@ -92,7 +92,7 @@
           </router-link>
         </v-col>
         <v-col cols="12" md="4">
-          <router-link to="/product-list-pag">
+          <router-link to="/product-list-page">
           <v-card>
               <v-card-title>Product Board List</v-card-title>
               <v-card-text>
