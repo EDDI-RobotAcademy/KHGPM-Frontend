@@ -1,28 +1,25 @@
 <template>
-  <div>
-    <table class="product-read-table">
-        <tr>
-            <td>상품 번호</td>
-            <td><input type="text" :value="product.productNo" readonly/></td>
-        </tr>
-        <tr>
-            <td>상품명</td>
-            <td><input type="text" :value="product.name" readonly/></td>
-        </tr>
-        <tr>
-            <td>가격</td>
-            <td><input type="text" :value="product.price" readonly/></td>
-        </tr>
-        <tr>
-            <td>작성자</td>
-            <td><input type="text" :value="product.writer" readonly/></td>
-        </tr>
-        <tr>
-            <td>본문</td>
-            <td><textarea cols="50" rows="20" :value="product.content" readonly/></td>
-        </tr>
-    </table>
-  </div>
+    <div class="row">
+        <div class="col-8" v-for="image in product.imageList" :key="image">
+            <v-img :src="require(`@/assets/uploadImgs/${image.imagePath}`)" aspect-ratio="1" class="grey lighten-2 w-50 h-70"/>
+            <!-- <img :src="require('@/assets/uploadImgs/pumpkinTea.jpg')" aspect-ratio="1" class="grey lighten-2 w-50 h-70"/> -->
+        </div>
+        
+        <div class="col-4">
+            <div>
+                {{ product.writer }}
+            </div>
+            <div>
+                {{ product.name }}
+            </div>
+            <div>
+                {{ product.price }}
+            </div>
+            <div>
+                {{ product.content }}
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -40,7 +37,5 @@ export default {
 </script>
 
 <style>
-    .product-read-table td {
-        border : 2px solid;
-    }
+
 </style>
