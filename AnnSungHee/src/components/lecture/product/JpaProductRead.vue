@@ -38,19 +38,40 @@
         </td>
       </tr>
     </table>
+
+    <v-row>
+      <v-col v-for="(imagePath, idx) in productImages" :key="idx" cols="12">
+        <v-img :src="require(`@/assets/uploadImgs/${imagePath.imageResourcePath}`)" aspect-ratio="1" class="grey lighten-2">
+          <template v-slot:placeholder>
+            <v-row class="fill-height ma-0" align="center" justify="center">
+              <v-progress-circular indeterminate color="grey lighten-5"/>
+            </v-row>
+          </template>
+        </v-img>
+      </v-col>
+    </v-row>
+
   </div>
 </template>
 
 <script>
+
 export default {
     name: "JpaProductRead",
     props: {
         product: {
             type: Object,
             required: true,
+        },
+        productImages: {
+            type: Array,
         }
+    },
+    created() {
+        console.log('productImages: ' + this.productImages)
     }
 }
+
 </script>
 
 <style>
