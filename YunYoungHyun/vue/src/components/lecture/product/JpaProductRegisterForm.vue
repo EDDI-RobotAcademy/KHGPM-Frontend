@@ -17,9 +17,15 @@
             <td>상품내용</td>
             <td><textarea cols="50" rows="20" v-model="content"/></td>
         </tr>
+        <tr>
+            <td>사진 추가</td>
+            <td>
+                <input type="file" id="files" ref="files" multiple @change="handleFileUpload"/>
+            </td>
+        </tr>
     </table>
-
-    <div class="mt-3">
+    
+    <div>
         <button type="submit" class="btn btn-outline-primary me-2">등록</button>
         <router-link :to="{ name: 'JpaProductListPage' }">
             <button type="button" class="btn btn-outline-danger">취소</button>
@@ -37,14 +43,42 @@ export default {
             name: '상품명',
             price: 0,
             writer: '작성자',
-            content: '상품내용'
+            content: '상품내용',
+            files: '',
         }
     },
     methods: {
         onSubmit() {
-            const { name, price, writer, content } = this
-            this.$emit('submit', { name, price, writer, content })
-        }
+            let formData = new FormData()
+
+            // 파일(이미지)
+            for (let idx = 0; idx < this.files.length; idx++) {
+                formData.append('imageFileList', this.files[idx])
+            }
+
+            // 글자
+            const { name, writer, content, price } = this
+            let productInfo = {
+                name: name,
+                price: price,
+                writer: writer,
+                content: content
+            }
+            console.log('productInfo: ' + JSON.stringify(productInfo))
+
+            formData.append(
+                "productInfo",
+                new Blob([JSON.stringify(productInfo)], { type: "application/json" })
+            )
+            
+            console.log('이거슨 formData: ' + JSON.stringify(formData))
+            this.$emit('submit', formData)
+
+            // this.$emit('submit', { name, writer, content, price })
+        },
+        handleFileUpload() {
+            this.files = this.$refs.files.files
+        },
     }
 }
 

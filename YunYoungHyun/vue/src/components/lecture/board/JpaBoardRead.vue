@@ -1,6 +1,6 @@
 <template>
   <div>
-    <table>
+    <table class="board-read-table">
         <tr>
             <td>게시물 번호</td>
             <td><input type="text" :value="board.boardId" readonly/></td>
@@ -40,5 +40,8 @@ export default {
 </script>
 
 <style>
-
+    .board-read-table td {
+        border: 1px solid;
+        text-align: center;
+    }
 </style>

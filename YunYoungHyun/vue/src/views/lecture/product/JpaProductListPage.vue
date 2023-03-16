@@ -17,8 +17,8 @@ import JpaProductList from '@/components/lecture/product/JpaProductList.vue'
 import { mapActions, mapState } from 'vuex'
 
 export default {
-  components: { JpaProductList },
   name: "JpaProductListPage",
+  components: { JpaProductList },
   computed: {
       ...mapState(['products'])
   },
