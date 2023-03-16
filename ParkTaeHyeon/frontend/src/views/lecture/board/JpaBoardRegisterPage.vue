@@ -19,11 +19,16 @@ export default {
         ]),
         // async - await 순차적 흐름을 필수적으로 코드를 짤 때
         async onSubmit (payload) {
-            console.log(payload)
-            await this.requestCreateBoardToSpring(payload)
-            // 강제 이동. sendReDirect와 유사한 기능
+
+            // await this.requestsCreateBoardToSpring(payload)
+            const board = await this.requestCreateBoardToSpring(payload)
+            console.log('board: ' + JSON.stringify(board.data))
+
+            // $router. 강제 이동. sendReDirect와 유사
             await this.$router.push({
-                name: 'JpaBoardListPage'
+                // name: 'JpaBoardListPage'
+                name: 'JpaBoardReadPage',
+                params: { boardId: board.data.boardId.toString() }
             })
         }
     }

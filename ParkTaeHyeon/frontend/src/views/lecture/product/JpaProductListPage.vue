@@ -4,7 +4,7 @@
             <router-link :to="{ name: 'JpaProductRegisterPage' }">
                 상품 등록
             </router-link>
-        <jpa-product-list :product="products"/>
+        <jpa-product-list :products="products"/>
     </v-container>
 </template>
 

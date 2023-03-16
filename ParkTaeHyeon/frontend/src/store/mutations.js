@@ -14,7 +14,7 @@ export default {
         state.board = passingData
     },
     [REQUEST_PRODUCT_LIST_TO_SPRING] (state, passingData) {
-        state.product = passingData
+        state.products = passingData
     },
     [REQUEST_PRODUCT_TO_SPRING] (state, passingData) {
         state.product = passingData
