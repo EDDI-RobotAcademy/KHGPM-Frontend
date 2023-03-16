@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <div class="black-bg" v-if="모달창열렸니 = false">
+    <div class="black-bg" v-if="모달창열렸니 = true">
       <div v-for="(room, index) in 원룸들" :key="index" class="white-bg">
         <h4>{{ room.title }}</h4>
         <p>{{ room.content }}</p>
@@ -69,7 +69,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 * {
   text-align: center;
 }

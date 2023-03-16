@@ -38,9 +38,8 @@ export default {
 
             await this.requestBoardModifyToSpring({ boardId, title, content, writer })
             await this.$router.push({
-                name: 'JpaBoardListPage',
-                //나는 수정 완료 했을 때 상세페이지보다 그냥 리스트로 보여주고 싶음 그래서 params주석처리 함
-                // params: { boardId: this.boardId }
+                name: 'JpaBoardReadPage',
+                params: { boardId: this.boardId }
             })
         }
     },

@@ -1,12 +1,12 @@
 <template>
-  <v-container>
-      <div>
-          <h2>상품 수정</h2>
-          <p><mark>등록한 상품을 수정하는 페이지 입니다.</mark></p>
-          <product-modify-form v-if="product" :product="product" @submit="onSubmit"/>
-          <p v-else>로딩중 ........</p>
-      </div>
-  </v-container>
+    <v-container>
+        <div align="center">
+            <h2>상품 수정</h2>
+            <p><mark>등록한 상품을 수정하는 페이지 입니다.</mark></p>
+            <product-modify-form v-if="product" :product="product" @submit="onSubmit" />
+            <p v-else>로딩중 ........</p>
+        </div>
+    </v-container>
 </template>
 
 <script>
@@ -29,7 +29,7 @@ export default {
             'requestProductToSpring',
             'requestProductModifyToSpring',
         ]),
-        async onSubmit (payload) {
+        async onSubmit(payload) {
             const { productName, content, writer, price } = payload
             const productId = this.productId
             await this.requestProductModifyToSpring(
@@ -40,11 +40,10 @@ export default {
             })
         }
     },
-    created () {
+    created() {
         this.requestProductToSpring(this.productId)
     }
 }
 </script>
 
-<style>
-</style>
+<style></style>
