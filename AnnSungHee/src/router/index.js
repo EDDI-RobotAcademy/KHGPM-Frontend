@@ -9,12 +9,24 @@ import ComponentTest from "@/views/lecture/componentTest/ComponentTest.vue"
 import EmitTestBoardGame from "@/views/lecture/emitTest/EmitTestBoardGame.vue"
 
 import AxiosTestPage from "@/views/lecture/axiosTest/AxiosTestPage.vue"
+
 import JpaBoardListPage from "@/views/lecture/board/JpaBoardListPage.vue"
 import JpaBoardRegisterPage from "@/views/lecture/board/JpaBoardRegisterPage.vue"
 import JpaBoardReadPage from "@/views/lecture/board/JpaBoardReadPage.vue"
 import JpaBoardModifyPage from "@/views/lecture/board/JpaBoardModifyPage.vue"
+
 import JpaProductListPage from "@/views/lecture/product/JpaProductListPage.vue"
 import JpaProductRegisterPage from "@/views/lecture/product/JpaProductRegisterPage.vue"
+import JpaProductReadPage from "@/views/lecture/product/JpaProductReadPage.vue"
+import JpaProductModifyPage from "@/views/lecture/product/JpaProductModifyPage.vue"
+
+import FileUploadPage from "@/views/lecture/file/FileUploadPage.vue"
+import ImageGalleryPage from "@/views/lecture/gallery/ImageGalleryPage.vue"
+import LifeCyclePage from "@/views/lecture/lifecycle/LifeCyclePage.vue"
+import CarouslePage from "@/views/lecture/carouselTest/CarouselPage.vue"
+import DialogTestPage from "@/views/lecture/dialogTest/DialogTestPage.vue"
+import TableTestPage from "@/views/lecture/tableTest/TableTestPage.vue"
+import TableExercisePage from "@/views/lecture/tableTest/TableExercisePage.vue"
 
 Vue.use(VueRouter)
 
@@ -89,6 +101,63 @@ const routes = [
     name: 'JpaProductRegisterPage',
     component: JpaProductRegisterPage
   },
+  {
+    path: '/product-read/:productId',
+    name: 'JpaProductReadPage',
+    components: {
+      default: JpaProductReadPage
+    },
+    props: {
+      default: true
+    }
+  },
+  {
+    path: '/product-modify/:productId',
+    name: 'JpaProductModifyPage',
+    components: {
+      default: JpaProductModifyPage
+    },
+    props: {
+      default: true
+    }
+  },
+  {
+    path: '/file-upload',
+    name: 'FileUploadPage',
+    component: FileUploadPage
+  },
+  {
+    path: '/image-gallery',
+    name: 'ImageGalleryPage',
+    component: ImageGalleryPage
+  },
+  {
+    path: '/life-cycle',
+    name: 'LifeCyclePage',
+    component: LifeCyclePage
+  },
+  {
+    path: '/carousel-page',
+    name: 'CarouslePage',
+    component: CarouslePage
+  },
+  {
+    path: '/dialog-test-page',
+    name: 'DialogTestPage',
+    component: DialogTestPage
+  },
+  {
+    path: '/table-test-page',
+    name: 'TableTestPage',
+    component: TableTestPage
+  },
+  {
+    path: '/table-exercise-page',
+    name: 'TableExercisePage',
+    component: TableExercisePage
+  }
+
+  
 ]
 
 const router = new VueRouter({

@@ -3,27 +3,27 @@
       <form @submit.prevent="onSubmit">
         <table>
           <tr>
-              <td>게시물 번호</td>
+              <td>상품 번호</td>
               <td>
-                  <input type="text" :value="board.boardId" disabled/>
+                  <input type="text" :value="product.productId" disabled/>
               </td>
           </tr>
           <tr>
-              <td>제목</td>
+              <td>상품명</td>
               <td>
-                  <input type="text" v-model="title"/>
+                  <input type="text" v-model="productName"/>
               </td>
           </tr>
           <tr>
               <td>작성자</td>
               <td>
-                  <input type="text" :value="board.writer" disabled/>
+                  <input type="text" :value="product.writer" disabled/>
               </td>
           </tr>
           <tr>
               <td>등록일자</td>
               <td>
-                  <input type="text" :value="board.regDate" disabled/>
+                  <input type="text" :value="product.regDate" disabled/>
               </td>
           </tr>
           <tr>
@@ -32,12 +32,18 @@
                   <textarea cols="50" rows="20" v-model="content"/>
               </td>
           </tr>
+          <tr>
+              <td>가격</td>
+              <td>
+                  <input type="number" v-model="price"/>
+              </td>
+          </tr>
         </table>
   
         <div>
           <button type="submit">수정 완료</button>
-          <router-link :to="{ name: 'JpaBoardReadPage',
-                              params: { boardId: board.boardId.toString() }}">
+          <router-link :to="{ name: 'JpaProductReadPage',
+                              params: { productId: product.productId.toString() }}">
             취소
           </router-link>
         </div>
@@ -48,31 +54,33 @@
   <script>
   
   export default {
-      name: "JpaBoardModifyForm",
+      name: "JpaProductModifyForm",
       props: {
-          board: {
+          product: {
               type: Object,
               required: true,
           }
       },
       data () {
           return {
-              title: '',
+              productName: '',
               content: '',
               writer: '',
               regDate: '',
+              price: 0,
           }
       },
       created () {
-          this.title = this.board.title
-          this.writer = this.board.writer
-          this.content = this.board.content
-          this.regDate = this.board.regDate
+          this.productName = this.product.productName
+          this.writer = this.product.writer
+          this.content = this.product.content
+          this.regDate = this.product.regDate
+          this.price = this.product.price
       },
       methods: {
           onSubmit () {
-              const { title, content, writer } = this
-              this.$emit('submit', { title, content, writer })
+              const { productName, content, writer, price } = this
+              this.$emit('submit', { productName, content, writer, price })
           }
       }
   }

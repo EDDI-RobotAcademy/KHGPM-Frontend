@@ -10,6 +10,13 @@
         <router-link :to="{ name: 'AxiosTestPage' }">Vue에서 Spring으로 데이터 전송하기</router-link> |
         <router-link :to="{ name: 'JpaBoardListPage' }">게시판</router-link> |
         <router-link :to="{ name: 'JpaProductListPage' }">상품</router-link> |   
+        <router-link :to="{ name: 'FileUploadPage' }">파일 업로드</router-link> | <br/>
+        <router-link :to="{ name: 'ImageGalleryPage' }">이미지 갤러리</router-link> |
+        <router-link :to="{ name: 'LifeCyclePage' }">라이프 사이클</router-link> |
+        <router-link :to="{ name: 'CarouslePage' }">크로셀 테스트</router-link> |
+        <router-link :to="{ name: 'DialogTestPage' }">다이얼로그 테스트</router-link> |
+        <router-link :to="{ name: 'TableTestPage' }">테이블 테스트</router-link> |
+        <router-link :to="{ name: 'TableExercisePage' }">테이블 테스트</router-link> |
       </nav>
       <router-view/>
     </div>
