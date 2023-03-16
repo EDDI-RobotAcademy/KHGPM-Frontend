@@ -25,6 +25,10 @@
             <input type="number" v-model="price"/>
           </td>
         </tr>
+        <tr>
+          <input type="file" id="files" ref="files"
+              multiple @change="handleFileUpload"/>
+        </tr>
       </table>
   
       <div>
@@ -45,14 +49,35 @@
               writer: '누구세요 ?',
               content: '내용을 입력하세요.',
               price: 0,
+              files: '',
           }
       },
       methods: {
-          onSubmit () {
-              const { productName, writer, content, price } = this
-              this.$emit('submit', { productName, writer, content, price })
-          }
+        handleFileUpload () {
+              this.files = this.$refs.files.files
+        },
+        onSubmit () {
+          let formData = new FormData()
+          let productInfo = {
+          productName: this.productName,
+          writer: this.writer,
+          content: this.content,
+          price: this.price,
+        }
+
+        // 사진
+        for (let idx = 0; idx < this.files.length; idx++) {
+          formData.append('fileList', this.files[idx])
+        }
+        // 글자
+        formData.append(
+          "productInfo",
+          new Blob([JSON.stringify(productInfo)], { type: "application/json" })
+        )
+        
+        this.$emit('submit', formData)
       }
+    }
   }
   </script>
   

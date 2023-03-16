@@ -15,8 +15,8 @@
           ...mapActions ([
               'requestCreateProductToSpring'
           ]),
-          async onSubmit (payload) {
-              await this.requestCreateProductToSpring(payload)
+          async onSubmit (formData) {
+              await this.requestCreateProductToSpring(formData)
               await this.$router.push({
                   name: 'JpaProductListPage'
               })
