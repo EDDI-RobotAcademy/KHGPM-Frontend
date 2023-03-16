@@ -37,7 +37,7 @@ export default {
 
             // 사진
             for (let idx = 0; idx < this.files.length; idx++) {
-                formData.append('fileList', this.files[idx])
+                formData.append('imageFileList', this.files[idx])
             }
 
             // 글자
