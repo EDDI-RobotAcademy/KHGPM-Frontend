@@ -20,6 +20,10 @@ import ProductReadPage from "@/views/lecture/product/ProductReadPage.vue"
 import ProductModifyPage from "@/views/lecture/product/ProductModifyPage.vue"
 import FileUploadPage from "@/views/lecture/file/FileUploadPage.vue"
 import ImageGalleryPage from "@/views/lecture/gallery/ImageGalleryPage.vue"
+import CarouselPage from "@/views/lecture/carouselTest/CarouselPage.vue"
+import DialogTestPage from "@/views/lecture/dialogTest/DialogTestPage.vue"
+import TableTestPage from "@/views/lecture/tableTest/TableTestPage.vue"
+import TableExercisePage from "@/views/lecture/tableTest/TableExercisePage.vue"
 
 Vue.use(VueRouter)
 
@@ -123,7 +127,28 @@ const routes = [
     path: '/image-gallery',
     name: 'ImageGalleryPage',
     component: ImageGalleryPage
+  },
+  {
+    path: '/carousel-page',
+    name: 'CarouselPage',
+    component: CarouselPage
+  },
+  {
+    path: '/dialog-test-page',
+    name: 'DialogTestPage',
+    component: DialogTestPage
+  },
+  {
+    path: '/table-test-page',
+    name: 'TableTestPage',
+    component: TableTestPage
+  },
+  {
+    path: '/table-exercise-page',
+    name: 'TableExercisePage',
+    component: TableExercisePage
   }
+  
 
   
 ]

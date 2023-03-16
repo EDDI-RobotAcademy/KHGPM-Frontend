@@ -8,13 +8,14 @@ import {
 import axios from 'axios'
 
 export default {
-    requestCreateBoardToSpring ({}, payload) {
-
+    requestCreateBoardToSpring ({ commit }, payload) {
+                            // commit 안 쓰면 { } 형태로 공객체를 전달한다.
         const { title, content, writer } = payload
         return axios.post('http://localhost:7777/board/register',
             { title, content, writer })
-            .then(() => {
+            .then((res) => {
                 alert('게시물 등록 성공!')
+                commit(REQUEST_BOARD_TO_SPRING, res.data)
             })
             .catch(() => {
                 alert('문제 발생!')
