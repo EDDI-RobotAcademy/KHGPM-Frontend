@@ -11,8 +11,10 @@ export default {
     const { title, content, writer } = payload;
     return axios
       .post('http://localhost:7777/board/register', { title, content, writer })
-      .then(() => {
+      .then((response) => {
+        const boardId = response.data;
         alert('게시물 등록 성공!');
+        return boardId;
       })
       .catch(() => {
         alert('문제 발생!');
@@ -51,9 +53,27 @@ export default {
       });
   },
   requestProduct({}, payload) {
-    const { name, description, price } = payload;
+    const { name, description, price, files } = payload;
+    let formData = new FormData();
+    formData.append('name', name);
+    formData.append('description', description);
+    formData.append('price', price);
+    for (let idx = 0; idx < files.length; idx++) {
+      formData.append('fileList', files[idx]);
+    }
+    for (let key of formData.keys()) {
+      console.log(key);
+    }
+    for (let value of formData.values()) {
+      console.log(value);
+    }
+
     return axios
-      .post('http://localhost:7777/shop/register', { name, description, price })
+      .post('http://localhost:7777/shop/register', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      })
       .then(() => {
         alert('상품 등록 성공!');
       })
@@ -63,10 +83,11 @@ export default {
   },
   requestProductList({ commit }) {
     return axios.get('http://localhost:7777/shop/list').then((res) => {
+      console.log('Fetched data from server:', res.data);
       commit(REQUEST_PRODUCT_LIST_TO_SPRING, res.data);
     });
   },
-  requestBoardToSpring({ commit }, boardId) {
+  requestProductToSpring({ commit }, productId) {
     return axios.get(`http://localhost:7777/shop/${productId}`).then((res) => {
       commit(REQUEST_BOARD_TO_SPRING, res.data);
     });

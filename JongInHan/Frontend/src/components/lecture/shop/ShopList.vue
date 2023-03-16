@@ -7,17 +7,21 @@
       >
         현재 등록된 상품이 없습니다!
       </div>
-      <div
-        class="product"
-        v-else
-        v-for="product in products"
-        :key="product.productId"
-      >
+      <div v-else v-for="(product, index) in products" :key="product.productId">
         <h2>{{ product.name }}</h2>
+        <pre>{{ product.imageDataList }}</pre>
+        <carousel>
+        <slide v-for="(imageData, index) in product.imageDataList" :key="index">
+        <img :src="getImagePath(imageData)" aspect-ratio="1" class="grey
+        lighten-2" />
+      </slide>
+      </carousel>
         <p>{{ product.description }}</p>
         <p>{{ product.price }}₩</p>
         <button @click="addToCart(product)">장바구니에 담기</button>
-        <router-link :to="{ name: 'ShopModifyPage', params: { productId } }">
+        <router-link
+          :to="{ name: 'ShopModifyPage', params: { productId: index } }"
+        >
           게시물 수정
         </router-link>
       </div>
@@ -35,9 +39,16 @@
     </div>
   </div>
 </template>
+
 <script>
+import { Carousel, Slide } from 'vue-carousel';
+
 export default {
   name: 'ShopList',
+  components: {
+    Carousel,
+    Slide,
+  },
   props: {
     products: {
       type: Array,
@@ -47,6 +58,9 @@ export default {
     return {
       cart: [],
     };
+  },
+  created() {
+    console.log('products:', this.products);
   },
   computed: {
     total() {
@@ -66,9 +80,13 @@ export default {
         this.cart[index].quantity += 1;
       }
     },
+    getImagePath(imageData) {
+      return require(`@/assets/${imageData}`);
+    },
   },
 };
 </script>
+
 <style>
 .shopping-mall {
   display: flex;
