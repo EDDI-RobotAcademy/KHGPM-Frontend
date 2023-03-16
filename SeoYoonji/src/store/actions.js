@@ -7,14 +7,15 @@ import {
 
 import axios from 'axios'
 
-export default {  //commit 할게 없어서 공객체 전달 ({})
-    requestCreateBoardToSpring ({}, payload) {
+export default {  //commit 할게 없으면 공객체 전달 ({})
+    requestCreateBoardToSpring ({ commit }, payload) {
 
         const { title, content, writer } = payload
         return axios.post('http://localhost:7777/board/register',
             { title, content, writer })
-            .then(() => {
+            .then((res) => {
                 alert('게시물 등록 성공!')
+                commit(REQUEST_BOARD_TO_SPRING, res.data)
             })
             .catch(() => {
                 alert('문제 발생!')
@@ -61,9 +62,8 @@ export default {  //commit 할게 없어서 공객체 전달 ({})
     },
     requestCreateProductToSpring ({}, payload) {
 
-        const { title, price, detail } = payload
-        return axios.post('http://localhost:7777/product/register',
-            { title, price, detail })
+       // const { title, price, detail } = payload
+        return axios.post('http://localhost:7777/product/register', payload)
             .then(() => {
                 alert('상품 등록 성공!')
             })
