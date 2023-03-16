@@ -12,6 +12,7 @@
       </v-col>
    </v-row>
    <!-- 보편적으로 플젝을 하는 상황에서 제일 많이 경험하는 문제 -->
+   <!-- aspect-ratio : 이미지의 종횡비율 정의(1로 설정 -> 높이, 너비 동일)-->
    <v-img :src="require(`@/assets/uploadImgs/${imageName}`)" aspect-ratio="1" class="grey lighten-2"/>
   </v-container>
 </template>

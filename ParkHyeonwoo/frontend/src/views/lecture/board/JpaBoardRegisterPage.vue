@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <h2>게시물 작성</h2>
-    <jpa-board-register-form @submit="onSubmit"/>
+    <jpa-board-register-form @submit="onSubmit" />
   </v-container>
 </template>
 
@@ -14,15 +14,17 @@ export default {
     name: "JpaBoardRegisterPage",
     methods: {
         ...mapActions ([
-            'requestCreateBoardToSpring'
+            'requestCreateBoardToSpring',
         ]),
         async onSubmit (payload) {
-            await this.requestCreateBoardToSpring(payload) // 얘를 끝날때까지 무조건 대기해라
-            await this.$router.push({ // 강제로 JpaBoardListPage 로 이동
-                name: 'JpaBoardListPage'
+            const board = await this.requestCreateBoardToSpring(payload) // 얘를 끝날때까지 무조건 대기해라
+            console.log('board: ' + JSON.stringify(board.data))
+            await this.$router.push({ // 강제로 JpaBoardReadPage 로 이동
+                name: 'JpaBoardReadPage',
+                params: { boardId: board.data.boardId.toString() }
             })
         }
-    }
+    },
 }
 
 </script>
