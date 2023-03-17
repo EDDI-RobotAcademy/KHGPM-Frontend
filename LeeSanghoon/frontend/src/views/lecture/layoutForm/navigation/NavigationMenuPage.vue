@@ -94,8 +94,12 @@ export default {
     },
     logout () {
       console.log('getItem: ' + localStorage.getItem("userInfo"))
-      //const token = localStorage.getItem("userInfo")
-      axios.post("http://localhost:7777/member/logout", localStorage.getItem("userInfo"))
+      let token = localStorage.getItem("userInfo")
+      const length = token.length
+      console.log('token: ' + token + ', length: ' + length)
+      token = token.substr(1, length - 2)
+      console.log('token: ' + token + ', length: ' + token.length)
+      axios.post("http://localhost:7777/member/logout", token)
           .then(() => {
             alert("로그아웃 완료");
             localStorage.removeItem("userInfo");
