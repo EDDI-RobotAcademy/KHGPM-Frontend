@@ -16,6 +16,22 @@
         <span>또 테스트</span>
         <v-icon right>mdi-history</v-icon>
       </v-btn>
+      <v-btn v-if="isAuthenticated == true" text color="grey" v-on:click="resign">
+        <span>회원 탈퇴</span>
+        <v-icon right>mdi-login</v-icon>
+      </v-btn>
+      <v-btn text color="grey" onclick="location.href='http://localhost:8080/sign-up'">
+        <span>Sign Up</span>
+        <v-icon right>mdi-account-plus-outline</v-icon>
+      </v-btn>
+      <v-btn v-if="isAuthenticated == false" text color="grey" onclick="location.href='http://localhost:8080/sign-in'">
+        <span>Sign In</span>
+        <v-icon right>mdi-login</v-icon>
+      </v-btn>
+      <v-btn v-else text color="grey" v-on:click="logout">
+        <span>Sign Out</span>
+        <v-icon right>mdi-exit-to-app</v-icon>
+      </v-btn>
     </v-app-bar>
 
     <v-navigation-drawer app v-model="navigation_drawer">
@@ -46,6 +62,9 @@
 
 <script>
 
+import {mapState} from "vuex";
+import axios from "axios";
+
 export default {
   name: "NavigationMenuPage",
   data () {
@@ -59,9 +78,46 @@ export default {
       ]
     }
   },
+  computed: {
+    ...mapState(["isAuthenticated"]),
+  },
+  mounted() {
+    if (localStorage.getItem("userInfo")) {
+      this.$store.state.isAuthenticated = true;
+    } else {
+      this.$store.state.isAuthenticated = false;
+    }
+  },
   methods: {
     clickToggle () {
       this.isTrue = !this.isTrue
+    },
+    logout () {
+      console.log('getItem: ' + localStorage.getItem("userInfo"))
+      let token = localStorage.getItem("userInfo")
+      const length = token.length
+      console.log('token: ' + token + ', length: ' + length)
+      token = token.substr(1, length - 2)
+      console.log('token: ' + token + ', length: ' + token.length)
+      axios.post("http://localhost:7777/member/logout", token)
+          .then(() => {
+            alert("로그아웃 완료");
+            localStorage.removeItem("userInfo");
+            this.$store.state.isAuthenticated = false;
+          })
+    },
+    resign () {
+      let token = localStorage.getItem("userInfo")
+      const length = token.length
+      console.log('token: ' + token + ', length: ' + length)
+      token = token.substr(1, length - 2)
+      console.log('token: ' + token)
+      axios.post("http://localhost:7777/member/resign", token)
+          .then(() => {
+            alert("회원탈퇴 완료");
+            localStorage.removeItem("userInfo");
+            this.$store.state.isAuthenticated = false;
+          })
     }
   }
 }
