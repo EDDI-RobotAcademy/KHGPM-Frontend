@@ -16,8 +16,7 @@
                               :rules="email_rule" :disabled="false" required/>
                 <v-btn text large outlined style="font-size: 13px"
                        class="mt-3 ml-5" color="teal lighten-1"
-                       @click="checkDuplicateEmail"
-                       :disabled="!emailPass">
+                       @click="checkDuplicateEmail">
                   이메일 <br/>중복 확인
                 </v-btn>
               </div>
@@ -56,7 +55,9 @@
               </div>
 
               <v-btn type="submit" block x-large rounded
-                     class="mt-6" color="purple lighten-1" :disabled="(emailPass & streetPass) == false">
+                     class="mt-6" color="purple lighten-1" 
+                     :disabled="(emailPass && streetPass) == false"
+                     @click="">
                 가입하기
               </v-btn>
 
@@ -108,7 +109,8 @@ export default {
   },
   methods: {
     onSubmit () {
-      if (this.$refs.form.validate()) {
+      //if (this.$refs.form.validate()) {
+      if (this.emailPass && this.streetPass) {
         const { email, password, city, street, addressDetail, zipcode } = this
         this.$emit("submit", { email, password, city, street, addressDetail, zipcode })
       } else {
@@ -119,15 +121,13 @@ export default {
       const emailValid = this.email.match(
           /^(([^<>()[\]\\.,;:\s@]+(\.[^<>()[\]\\.,;:\s@]+)*)|(.+))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
       );
-
-      if (emailValid) {
-        this.emailPass = true
-      }
     },
     checkDuplicateEmail () {
       const emailValid = this.email.match(
           /^(([^<>()[\]\\.,;:\s@]+(\.[^<>()[\]\\.,;:\s@]+)*)|(.+))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
       );
+
+      this.emailPass = false
 
       if (emailValid) {
         const {email} = this
