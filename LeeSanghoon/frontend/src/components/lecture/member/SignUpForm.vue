@@ -56,8 +56,7 @@
 
               <v-btn type="submit" block x-large rounded
                      class="mt-6" color="purple lighten-1" 
-                     :disabled="(emailPass && streetPass) == false"
-                     @click="">
+                     :disabled="(emailPass && streetPass) == false">
                 가입하기
               </v-btn>
 
@@ -121,6 +120,8 @@ export default {
       const emailValid = this.email.match(
           /^(([^<>()[\]\\.,;:\s@]+(\.[^<>()[\]\\.,;:\s@]+)*)|(.+))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
       );
+
+      this.emailPass = false;
     },
     checkDuplicateEmail () {
       const emailValid = this.email.match(
