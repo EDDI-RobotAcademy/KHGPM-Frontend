@@ -17,7 +17,6 @@
         <router-link to="/table-test-page">테이블 테스트</router-link> | 
         <router-link to="/table-exercise-page">Vue + Spring 테이블 테스트</router-link> | 
       </nav>
-      <router-link/>
     </div>
   </v-container>
 </template>
