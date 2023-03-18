@@ -26,6 +26,10 @@ import DialogTestPage from '@/views/lecture/dialogTest/DialogTestPage.vue'
 import TableTestPage from '@/views/lecture/tableTest/TableTestPage.vue'
 import TableExercisePage from '@/views/lecture/tableTest/TableExercisePage.vue'
 
+import SignUpPage from "@/views/lecture/member/SignUpPage";
+import SignInPage from "@/views/lecture/member/SignInPage";
+import SearchMemberPasswordPage from "@/views/lecture/member/SearchMemberPasswordPage";
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -152,6 +156,22 @@ const routes = [
     name: 'TableExercisePage',
     component: TableExercisePage
   },
+
+  {
+    path: '/sign-up',
+    name: 'SignUpPage',
+    component: SignUpPage
+  },
+  {
+    path: '/sign-in',
+    name: 'SignInPage',
+    component: SignInPage
+  },
+  {
+    path: '/search-password',
+    name: 'SearchMemberPasswordPage',
+    component: SearchMemberPasswordPage
+  }
 
 ]
 
