@@ -1,5 +1,5 @@
 <template>
-    <v-footer app inset padless class="justify-center pl-0">
+    <v-footer inset padless class="justify-center pl-0">
       <v-card flat class="text-center" width="100%">
         <v-card-text>
           <v-btn v-for="icon in icons" :key="icon" class="mx-4" icon>
