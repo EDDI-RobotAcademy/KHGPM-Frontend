@@ -5,6 +5,7 @@ export default {
     products: [],
     product: {},
     productImages: [],
+    allOfProducts: [],
 
     isAuthenticated: false,
 }
