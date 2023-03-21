@@ -32,6 +32,8 @@ import SignUpPage from "@/views/lecture/member/SignUpPage";
 import SignInPage from "@/views/lecture/member/SignInPage";
 import SearchMemberPasswordPage from "@/views/lecture/member/SearchMemberPasswordPage";
 
+import ProductTestListPage from "@/views/lecture/product/ProductTestListPage";
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -174,7 +176,12 @@ const routes = [
     path: '/search-password',
     name: 'SearchMemberPasswordPage',
     component: SearchMemberPasswordPage
-  }
+  },
+  {
+    path: '/product-test-list-page',
+    name: 'ProductTestListPage',
+    component: ProductTestListPage
+  },
   
   
 ]
