@@ -1,6 +1,9 @@
 export default {
     boards: [],
     board: {},
+
     products: [],
-    product: {}
+    product: {},
+
+    isAuthenticated: false,
 }
