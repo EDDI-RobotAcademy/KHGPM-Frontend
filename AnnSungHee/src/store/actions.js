@@ -3,19 +3,20 @@ import {
     REQUEST_BOARD_TO_SPRING,
     REQUEST_PRODUCT_LIST_TO_SPRING,
     REQUEST_PRODUCT_TO_SPRING,
+    REQUEST_PRODUCT_IMAGE_LIST_TO_SPRING,
 } from './mutation-types'
 
 import axios from 'axios'
 
 export default {
     requestCreateBoardToSpring ({}, payload) {
-        
+
         const { title, content, writer } = payload
         return axios.post('http://localhost:7777/board/register',
             { title, content, writer })
             .then((res) => {
-                alert('게시물 등록 성공!' + res.data)
-                return { boardId: res.data };
+                alert('게시물 등록 성공: ' + JSON.stringify(res.data))
+                return res
             })
             .catch(() => {
                 alert('문제 발생!')
@@ -46,7 +47,7 @@ export default {
         const { title, content, boardId, writer } = payload
 
         return axios.put(`http://localhost:7777/board/${boardId}`,
-            { title, writer, content })
+            { title, content, writer })
             .then(() => {
                 alert("수정 성공")
             })
@@ -54,11 +55,14 @@ export default {
                 alert("문제 발생!")
             })
     },
+
     requestCreateProductToSpring ({}, payload) {
 
-        // const { productName, content, writer, price, file } = payload
+        console.log('payload: ' + payload)
+        const { productName, content, writer, price } = payload
         return axios.post('http://localhost:7777/product/register',
             payload)
+            //{ productName, content, writer, price })
             .then(() => {
                 alert('상품 등록 성공!')
             })
@@ -99,4 +103,11 @@ export default {
                 alert("문제 발생!")
             })
     },
+
+    requestProductImageToSpring ({ commit }, productId) {
+        return axios.get(`http://localhost:7777/product/imageList/${productId}`)
+            .then((res) => {
+                commit(REQUEST_PRODUCT_IMAGE_LIST_TO_SPRING, res.data)
+            })
+    }
 }

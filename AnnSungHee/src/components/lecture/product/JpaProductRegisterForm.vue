@@ -59,9 +59,11 @@ export default {
     methods: {
         onSubmit () {
             let formData = new FormData()
+
             for (let idx = 0; idx < this.files.length; idx++) {
                 formData.append('imageFileList', this.files[idx])
             }
+
             const { productName, writer, content, price } = this
             let productInfo = {
                 productName: productName,
@@ -69,14 +71,16 @@ export default {
                 content: content,
                 price: price,
             }
+
             console.log('productInfo: ' + JSON.stringify(productInfo))
+
             formData.append(
                 "productInfo",
                 new Blob([JSON.stringify(productInfo)], { type: "application/json" })
             )
-            console.log('imageFileList: ' + formData.get('imageFileList'))
-            console.log('formData(ns): ' + formData.get('productInfo'))
+
             console.log('formData: ' + JSON.stringify(formData))
+
             this.$emit('submit', formData)
         },
         handleFileUpload () {
