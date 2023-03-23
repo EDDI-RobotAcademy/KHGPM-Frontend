@@ -8,18 +8,20 @@
 <script>
 import JpaProductRegisterForm from '@/components/lecture/product/JpaProductRegisterForm.vue'
 import { mapActions } from 'vuex'
-import store from '@/store'
+//import productModule from '@/store/product/ProductModule'
+
+const productModule = 'productModule'
 
 export default {
     components: { JpaProductRegisterForm },
     name: "JpaProductRegisterPage",
     methods: {
-        // ...mapActions ([
-        //     'ProductModule', ['requestCreateProductToSpring']
-        // ]),
+        ...mapActions (
+            productModule, ['requestCreateProductToSpring']
+        ),
         async onSubmit (payload) {
-            //await this.requestCreateProductToSpring(payload)
-            store.dispatch('ProductModule/requestCreateProductToSpring', payload)
+            await this.requestCreateProductToSpring(payload)
+            //await this.$store.dispatch('productModule/requestCreateProductToSpring', payload)
             await this.$router.push({
                 name: 'JpaProductListPage'
             })

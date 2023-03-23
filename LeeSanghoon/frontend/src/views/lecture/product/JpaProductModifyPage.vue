@@ -13,6 +13,8 @@
 import JpaProductModifyForm from '@/components/lecture/product/JpaProductModifyForm.vue'
 import { mapActions, mapState } from 'vuex'
 
+const productModule = 'productModule'
+
 export default {
     components: { JpaProductModifyForm },
     name: "JpaProductModifyPage",
@@ -23,10 +25,10 @@ export default {
         }
     },
     computed: {
-        ...mapState(['product'])
+        ...mapState(productModule, ['product'])
     },
     methods: {
-        ...mapActions([
+        ...mapActions(productModule, [
             'requestProductToSpring',
             'requestProductModifyToSpring',
         ]),
