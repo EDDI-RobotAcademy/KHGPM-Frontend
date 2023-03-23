@@ -18,7 +18,7 @@ export default {
   name: "JpaProductListPage",
   computed: {
     ...mapState([
-      'products'
+      'ProductModule', ['products']
     ]),
   },
   mounted () {
@@ -26,7 +26,8 @@ export default {
   },
   methods: {
     ...mapActions([
-      'requestProductListToSpring'
+      'ProductModule',
+      ['requestProductListToSpring']
     ])
   }
 }
