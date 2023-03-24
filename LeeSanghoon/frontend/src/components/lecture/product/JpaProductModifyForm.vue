@@ -38,7 +38,26 @@
                 <input type="number" v-model="price"/>
             </td>
         </tr>
+        <tr>
+            <td>사진 변경</td>
+            <td>
+            <input type="file" id="files" ref="files"
+                multiple @change="handleFileUpload"/>
+            </td>
+        </tr>
       </table>
+
+      <v-row>
+        <v-col v-for="(imagePath, idx) in productImages" :key="idx" cols="12">
+            <v-img :src="require(`@/assets/uploadImgs/${imagePath.imageResourcePath}`)" aspect-ratio="1" class="grey lighten-2">
+            <template v-slot:placeholder>
+                <v-row class="fill-height ma-0" align="center" justify="center">
+                <v-progress-circular indeterminate color="grey lighten-5"/>
+                </v-row>
+            </template>
+            </v-img>
+        </v-col>
+      </v-row>
 
       <div>
         <button type="submit">수정 완료</button>
@@ -59,6 +78,9 @@ export default {
         product: {
             type: Object,
             required: true,
+        },
+        productImages: {
+            type: Array,
         }
     },
     data () {
@@ -68,6 +90,7 @@ export default {
             writer: '',
             regDate: '',
             price: 0,
+            files: '',
         }
     },
     created () {
@@ -79,9 +102,34 @@ export default {
     },
     methods: {
         onSubmit () {
-            const { productName, content, writer, price } = this
-            this.$emit('submit', { productName, content, writer, price })
-        }
+            let formData = new FormData()
+
+            for (let idx = 0; idx < this.files.length; idx++) {
+                formData.append('imageFileList', this.files[idx])
+            }
+
+            const { productName, writer, content, price } = this
+            let productInfo = {
+                productName: productName,
+                writer: writer,
+                content: content,
+                price: price,
+            }
+
+            console.log('productInfo: ' + JSON.stringify(productInfo))
+            formData.append(
+                "productInfo",
+                new Blob([JSON.stringify(productInfo)], { type: "application/json" })
+            )
+            console.log('formData: ' + JSON.stringify(formData))
+            this.$emit('submit', formData)
+        },
+        handleFileUpload () {
+            this.files = this.$refs.files.files
+        },
+    },
+    mounted () {
+        console.log('files: ' + this.productImages)
     }
 }
 

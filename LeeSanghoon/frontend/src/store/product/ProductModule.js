@@ -10,7 +10,6 @@ import {
     REQUEST_PRODUCT_TO_SPRING
 } from "@/store/product/mutation-types";
 
-import axios from "axios";
 import mutations from "@/store/product/mutations";
 
 Vue.use(Vuex)
@@ -19,6 +18,9 @@ const ProductModule = {
     namespaced: true,
     state: {
         products: [],
+        product: {},
+        productImages: [],
+        allOfProducts: [],
     },
     actions: {
         async requestCreateProductToSpring ({}, payload) {
