@@ -20,6 +20,8 @@
 import JpaProductRead from '@/components/lecture/product/JpaProductRead.vue'
 import { mapActions, mapState } from 'vuex'
 
+const productModule = 'productModule'
+
 export default {
   components: { JpaProductRead },
     name: "JpaProductReadPage",
@@ -30,10 +32,10 @@ export default {
         }
     },
     computed: {
-        ...mapState(['product', 'productImages'])
+        ...mapState(productModule, ['product', 'productImages'])
     },
     methods: {
-        ...mapActions([
+        ...mapActions(productModule, [
             'requestProductToSpring',
             'requestDeleteProductToSpring',
             'requestProductImageToSpring',
@@ -44,7 +46,7 @@ export default {
         }
     },
     async created () {
-        console.log('productId: ' + this.productId)
+        await console.log('productReadPage productId: ' + this.productId)
         await this.requestProductToSpring(this.productId)
         await this.requestProductImageToSpring(this.productId)
     }

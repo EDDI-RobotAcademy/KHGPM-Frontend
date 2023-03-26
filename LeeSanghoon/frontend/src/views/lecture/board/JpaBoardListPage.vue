@@ -13,19 +13,19 @@
 import JpaBoardList from '@/components/lecture/board/JpaBoardList.vue'
 import { mapActions, mapState } from 'vuex'
 
+const boardModule = 'boardModule'
+
 export default {
   components: { JpaBoardList },
   name: "JpaBoardListPage",
   computed: {
-    ...mapState([
-      'boards'
-    ]),
+    ...mapState(boardModule, ['boards']),
   },
   mounted () {
     this.requestBoardListToSpring()
   },
   methods: {
-    ...mapActions([
+    ...mapActions(boardModule, [
       'requestBoardListToSpring'
     ])
   }

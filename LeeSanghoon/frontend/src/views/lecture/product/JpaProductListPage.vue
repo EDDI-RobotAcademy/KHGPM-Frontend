@@ -13,21 +13,23 @@
 import JpaProductList from '@/components/lecture/product/JpaProductList.vue'
 import { mapActions, mapState } from 'vuex'
 
+const productModule = 'productModule'
+
 export default {
   components: { JpaProductList },
   name: "JpaProductListPage",
   computed: {
-    ...mapState([
-      'products'
-    ]),
+    ...mapState(
+      productModule, ['products']
+    ),
   },
   mounted () {
     this.requestProductListToSpring()
   },
   methods: {
-    ...mapActions([
-      'requestProductListToSpring'
-    ])
+    ...mapActions(
+      productModule, ['requestProductListToSpring']
+    )
   }
 }
 

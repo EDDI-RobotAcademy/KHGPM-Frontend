@@ -96,6 +96,7 @@ export default {
       console.log('getItem: ' + localStorage.getItem("userInfo"))
       let token = localStorage.getItem("userInfo")
       const length = token.length
+      // " "
       console.log('token: ' + token + ', length: ' + length)
       token = token.substr(1, length - 2)
       console.log('token: ' + token + ', length: ' + token.length)

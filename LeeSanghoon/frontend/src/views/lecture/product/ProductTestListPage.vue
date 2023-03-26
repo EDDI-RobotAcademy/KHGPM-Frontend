@@ -6,8 +6,11 @@
 </template>
 
 <script>
+
 import ProductListForm from "@/components/lecture/product/ProductTestListForm.vue";
 import { mapState, mapActions } from "vuex";
+
+const productModule = 'productModule'
 
 export default {
   name: "productTestListPage",
@@ -20,12 +23,12 @@ export default {
     }
   },
   computed: {
-    ...mapState([
+    ...mapState(productModule, [
       'allOfProducts',
     ])
   },
   methods: {
-    ...mapActions([
+    ...mapActions(productModule, [
       'requestAllOfProductToSpring'
     ])
   },

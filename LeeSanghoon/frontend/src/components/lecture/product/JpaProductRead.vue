@@ -68,7 +68,7 @@ export default {
         }
     },
     created() {
-        console.log('productImages: ' + this.productImages)
+        console.log('productRead - productImages: ' + this.productImages)
     }
 }
 

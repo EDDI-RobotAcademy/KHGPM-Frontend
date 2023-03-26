@@ -2,7 +2,8 @@
   <v-container>
     <div align="center">
       <h2>게시물 수정</h2>
-      <jpa-product-modify-form v-if="product" :product="product" @submit="onSubmit"/>
+      <jpa-product-modify-form v-if="product" :productId="productId"
+                               :product="product" :productImages="productImages" @submit="onSubmit"/>
       <p v-else>로딩중 ........</p>
     </div>
   </v-container>
@@ -12,6 +13,8 @@
 
 import JpaProductModifyForm from '@/components/lecture/product/JpaProductModifyForm.vue'
 import { mapActions, mapState } from 'vuex'
+
+const productModule = 'productModule'
 
 export default {
     components: { JpaProductModifyForm },
@@ -23,27 +26,38 @@ export default {
         }
     },
     computed: {
-        ...mapState(['product'])
+        ...mapState(productModule, ['product', 'productImages'])
     },
     methods: {
-        ...mapActions([
+        ...mapActions(productModule, [
             'requestProductToSpring',
             'requestProductModifyToSpring',
+            'requestProductImageToSpring',
         ]),
         async onSubmit (payload) {
-            const { productName, content, writer, price } = payload
-            const productId = this.productId
+            //const { productName, content, writer, price } = payload
+            //const productId = this.productId
+
+            // console.log('after submit: ' + productId)
+            // console.log('before axios: ')
+            // for (let value of payload.values()) {
+            //   console.log(value);
+            // }
+
+            console.log('payload: ' + JSON.stringify(payload))
 
             await this.requestProductModifyToSpring(
-                { productId, productName, content, writer, price })
+                //{ productId, productName, content, writer, price })
+                payload)
             await this.$router.push({
                 name: 'JpaProductReadPage',
-                params: { productId: this.productId }
+                params: { productId: this.productId, productImages: this.productImages }
             })
         }
     },
-    created () {
-        this.requestProductToSpring(this.productId)
+    async created () {
+        await this.requestProductToSpring(this.productId)
+        await this.requestProductImageToSpring(this.productId)
     }
 }
 
