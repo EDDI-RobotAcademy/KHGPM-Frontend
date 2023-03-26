@@ -6,14 +6,17 @@
 </template>
 
 <script>
+
 import JpaBoardRegisterForm from '@/components/lecture/board/JpaBoardRegisterForm.vue'
 import { mapActions } from 'vuex'
+
+const boardModule = 'boardModule'
 
 export default {
     components: { JpaBoardRegisterForm },
     name: "JpaBoardRegisterPage",
     methods: {
-        ...mapActions ([
+        ...mapActions (boardModule, [
             'requestCreateBoardToSpring'
         ]),
         async onSubmit (payload) {

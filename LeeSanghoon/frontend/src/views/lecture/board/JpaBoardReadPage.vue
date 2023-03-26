@@ -20,6 +20,8 @@
 import JpaBoardRead from '@/components/lecture/board/JpaBoardRead.vue'
 import { mapActions, mapState } from 'vuex'
 
+const boardModule = 'boardModule'
+
 export default {
   components: { JpaBoardRead },
     name: "JpaBoardReadPage",
@@ -30,10 +32,10 @@ export default {
         }
     },
     computed: {
-        ...mapState(['board'])
+        ...mapState(boardModule, ['board'])
     },
     methods: {
-        ...mapActions([
+        ...mapActions(boardModule, [
             'requestBoardToSpring',
             'requestDeleteBoardToSpring'
         ]),

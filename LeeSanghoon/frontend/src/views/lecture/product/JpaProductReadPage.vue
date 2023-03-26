@@ -46,7 +46,7 @@ export default {
         }
     },
     async created () {
-        console.log('productId: ' + this.productId)
+        await console.log('productReadPage productId: ' + this.productId)
         await this.requestProductToSpring(this.productId)
         await this.requestProductImageToSpring(this.productId)
     }

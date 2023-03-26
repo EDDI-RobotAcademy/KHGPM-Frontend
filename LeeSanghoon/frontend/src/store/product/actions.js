@@ -5,38 +5,36 @@ import {
     REQUEST_ALL_PRODUCT_TO_SPRING,
 } from './mutation-types'
 
-import axios from 'axios'
 import axiosInst from '@/utility/axiosObject'
 
 export default {
-    // requestCreateProductToSpring ({}, payload) {
+    async requestCreateProductToSpring ({}, payload) {
+        // how to print formData
+        for (let key of payload.keys()) {
+            console.log(key, ": ", payload.get(key))
+        }
 
-    //     console.log('payload: ' + payload)
-    //     const { productName, content, writer, price } = payload
-    //     return axios.post('http://localhost:7777/product/register',
-    //         payload)
-    //         //{ productName, content, writer, price })
-    //         .then(() => {
-    //             alert('상품 등록 성공!')
-    //         })
-    //         .catch(() => {
-    //             alert('문제 발생!')
-    //         })
-    // },
-    requestProductListToSpring ({ commit }) {
-        return axiosInst.get('/product/list')
+        try {
+            await axiosInst.post('/product/register', payload)
+            alert('상품 등록 성공!')
+        } catch {
+            alert('문제 발생!')
+        }
+    },
+    async requestProductListToSpring ({ commit }) {
+        return await axiosInst.get('/product/list')
             .then((res) => {
                 commit(REQUEST_PRODUCT_LIST_TO_SPRING, res.data)
             })
     },
-    requestProductToSpring ({ commit }, productId) {
-        return axiosInst.get(`/product/${productId}`)
+    async requestProductToSpring ({ commit }, productId) {
+        return await axiosInst.get(`/product/${productId}`)
             .then((res) => {
                 commit(REQUEST_PRODUCT_TO_SPRING, res.data)
             })
     },
-    requestDeleteProductToSpring ({}, productId) {
-        return axios.delete(`http://localhost:7777/product/${productId}`)
+    async requestDeleteProductToSpring ({}, productId) {
+        return await axiosInst.delete(`/product/${productId}`)
             .then(() => {
                 alert("삭제 성공")
             })
@@ -44,11 +42,24 @@ export default {
                 alert("문제 발생!")
             })
     },
-    requestProductModifyToSpring ({}, payload) {
-        const { productName, content, productId, writer, price } = payload
+    async requestProductModifyToSpring ({}, payload) {
+        console.log('requestProductModifyToSpring()')
+        const { productId, formData } = payload
 
-        return axios.put(`http://localhost:7777/product/${productId}`,
-            { productName, content, writer, price })
+        console.log('before request: ' + payload)
+        console.log('formData: ' + formData)
+        for (let idx = 0, len = files.length; idx < len; idx++) {
+            console.log(payload.formData[idx])
+        }
+        console.log('requestProductModifyToSpring productId: ' + productId)
+
+        return await axiosInst.put(`/product/${productId}`,
+            //{ productName, content, writer, price })
+            formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            })
             .then(() => {
                 alert("수정 성공")
             })
@@ -56,15 +67,14 @@ export default {
                 alert("문제 발생!")
             })
     },
-
-    requestProductImageToSpring ({ commit }, productId) {
-        return axios.get(`http://localhost:7777/product/imageList/${productId}`)
+    async requestProductImageToSpring ({ commit }, productId) {
+        return await axiosInst.get(`/product/imageList/${productId}`)
             .then((res) => {
                 commit(REQUEST_PRODUCT_IMAGE_LIST_TO_SPRING, res.data)
             })
     },
-    requestAllOfProductToSpring ({ commit }) {
-        return axios.get('http://localhost:7777/product/all')
+    async requestAllOfProductToSpring ({ commit }) {
+        return await axiosInst.get('/product/all')
             .then((res) => {
                 commit(REQUEST_ALL_PRODUCT_TO_SPRING, res.data)
                 console.log("allProduct: " + res.data)

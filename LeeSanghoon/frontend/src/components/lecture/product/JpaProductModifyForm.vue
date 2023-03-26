@@ -62,7 +62,7 @@
       <div>
         <button type="submit">수정 완료</button>
         <router-link :to="{ name: 'JpaProductReadPage',
-                            params: { productId: product.productId.toString() }}">
+                            params: { productId: productId }}">
           취소
         </router-link>
       </div>
@@ -75,6 +75,10 @@
 export default {
     name: "JpaProductModifyForm",
     props: {
+        productId: {
+            type: String,
+            required: true,
+        },
         product: {
             type: Object,
             required: true,
@@ -102,34 +106,50 @@ export default {
     },
     methods: {
         onSubmit () {
+            /*
+            const productId = this.productId
+            const { productName, writer, content, price, files } = this
+            console.log('before emit: ' + files)
+            for (let idx = 0, len = files.length; idx < len; idx++) {
+              console.log(files[idx])
+            }
+            this.$emit('submit', { productName, writer, content, price, files, productId })
+             */
             let formData = new FormData()
 
             for (let idx = 0; idx < this.files.length; idx++) {
-                formData.append('imageFileList', this.files[idx])
+              formData.append('imageFileList', this.files[idx])
             }
 
-            const { productName, writer, content, price } = this
+            const { productName, writer, content, price, productId } = this
             let productInfo = {
-                productName: productName,
-                writer: writer,
-                content: content,
-                price: price,
+              productName: productName,
+              writer: writer,
+              content: content,
+              price: price,
             }
 
             console.log('productInfo: ' + JSON.stringify(productInfo))
+
             formData.append(
                 "productInfo",
                 new Blob([JSON.stringify(productInfo)], { type: "application/json" })
             )
-            console.log('formData: ' + JSON.stringify(formData))
-            this.$emit('submit', formData)
+
+            console.log('before emit: ' + files)
+            for (let idx = 0, len = files.length; idx < len; idx++) {
+              console.log(files[idx])
+            }
+            console.log('productId: ' + productId)
+
+            this.$emit('submit', { productId, formData })
         },
         handleFileUpload () {
-            this.files = this.$refs.files.files
+          this.files = this.$refs.files.files
         },
     },
     mounted () {
-        console.log('files: ' + this.productImages)
+        console.log('modify form - files: ' + this.productImages)
     }
 }
 

@@ -13,6 +13,8 @@
 import JpaBoardModifyForm from '@/components/lecture/board/JpaBoardModifyForm.vue'
 import { mapActions, mapState } from 'vuex'
 
+const boardModule = 'boardModule'
+
 export default {
     components: { JpaBoardModifyForm },
     name: "JpaBoardModifyPage",
@@ -23,10 +25,10 @@ export default {
         }
     },
     computed: {
-        ...mapState(['board'])
+        ...mapState(boardModule, ['board'])
     },
     methods: {
-        ...mapActions([
+        ...mapActions(boardModule, [
             'requestBoardToSpring',
             'requestBoardModifyToSpring',
         ]),
